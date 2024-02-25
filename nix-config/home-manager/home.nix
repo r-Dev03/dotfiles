@@ -61,7 +61,6 @@
 	gnumake
 	platformio
 	ripgrep
-	lazygit
 	starship
 	tmux
 	zsh-autosuggestions
