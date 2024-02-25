@@ -17,6 +17,7 @@
   ];
 
   nixpkgs = {
+
     # You can add overlays here
     overlays = [
       # If you want to use overlays exported from other flakes:
@@ -41,12 +42,30 @@
   # TODO: Set your username
   home = {
     username = "r-dev";
-    homeDirectory = "/home/r-dev";
+    homeDirectory = "/Users/r-dev";
   };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = 
+  with pkgs; [  
+	# Text editor 
+	#neovim
+
+	# Terminal
+	#kitty
+
+	# Shell Tools
+	btop
+
+
+
+
+  ];
+
+  
+  # alias
+   hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
