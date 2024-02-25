@@ -63,10 +63,6 @@
 
   ];
 
-  
-  # alias
-   hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
-
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
