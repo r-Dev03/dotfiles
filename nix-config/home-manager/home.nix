@@ -49,16 +49,31 @@
   # programs.neovim.enable = true;
   home.packages = 
   with pkgs; [  
-	# Text editor 
-	#neovim
 
-	# Terminal
-	#kitty
+	### Text editor 
+	neovim
 
-	# Shell Tools
+	### CLI Tools
 	btop
+	fzf
+	fd
+	git
+	gnumake
+	platformio
+	ripgrep
+	lazygit
+	starship
+	tmux
+	zsh-autosuggestions
 
+	### build tools
+	cmake
+	gcc13
+	openjdk
+	(python311.withPackages (ps: with ps; [ipython]))
+	
 
+ 	### File format-specific tools
 
 
   ];
