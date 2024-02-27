@@ -32,6 +32,10 @@
   home = {
     username = "r-dev";
     homeDirectory = "/Users/r-dev";
+	sessionVariables = {
+      EDITOR = "nvim";
+      DOTFILES = "$HOME/.dotfiles/";
+    };
   };
 
 # Packages
@@ -47,7 +51,6 @@
 	fd
 	git
 	gnumake
-	nix-direnv
 	platformio
 	ripgrep
 	starship
@@ -63,6 +66,23 @@
 
  	### File format-specific tools
 
+  ### Nix
+	rnix-lsp # language server
+	nix-direnv # nix intergration for direnv
+	alejandra # black-inspired formatting
+	statix # linter
+
+  ### Lua
+	lua-language-server
+	stylua
+
+
+  ### Web
+	nodePackages.vscode-langservers-extracted
+	nodePackages.typescript
+	nodePackages.typescript-language-server
+	nodePackages.prettier
+	nodePackages.eslint
 
   ];
 
@@ -74,12 +94,38 @@
       nix-direnv.enable = true;
     };
     zsh = {
+      enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
       syntaxHighlighting.enable = true;
+      autocd = true;
+      defaultKeymap = "emacs";
+      history = {
+        size = 10000;
+        save = 10000;
+        ignoreDups = true;
+        expireDuplicatesFirst = true;
+        share = true;
+      };
+      shellAliases = {
+   		hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
+   		dots = "cd ~/.config/";
+		dev = "cd ~/Documents/Dev/";
+        vi = "nvim";
+        vim = "nvim";
+        vimdiff = "nvim -d";
+      };
+    };
+	fzf = {
+		enable = true;
+		enableZshIntegration = true;
+		defaultCommand = "fd --type f";
+		changeDirWidgetCommand = "fd --type d";
+		fileWidgetCommand = "fd --type f";
 	};
+	starship.enable = true;
+  };
 
-	};
 
 home.stateVersion = "23.05";
 systemd.user.startServices = "sd-switch";
