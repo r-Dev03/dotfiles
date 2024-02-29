@@ -17,9 +17,7 @@
   ];
 
   nixpkgs = {
-
     overlays = [
-
     ];
 
     config = {
@@ -32,63 +30,66 @@
   home = {
     username = "r-dev";
     homeDirectory = "/Users/r-dev";
-	sessionVariables = {
+    sessionVariables = {
       EDITOR = "nvim";
       DOTFILES = "$HOME/.dotfiles/";
     };
   };
 
-# Packages
-  home.packages = 
-  with pkgs; [  
+  # Packages
+  home.packages = with pkgs; [
+    ### Text editor
+    neovim
 
-	### Text editor 
-	neovim
+    ### CLI Tools
+    btop
+    fzf
+    fd
+    git
+    gnumake
+    platformio
+    ripgrep
+    starship
+    tmux
+    zsh-autosuggestions
 
-	### CLI Tools
-	btop
-	fzf
-	fd
-	git
-	gnumake
-	platformio
-	ripgrep
-	starship
-	tmux
-	zsh-autosuggestions
+    ### build tools
+    cmake
+    gcc13
+    openjdk
+    (python311.withPackages (ps: with ps; [ipython]))
 
-	### build tools
-	cmake
-	gcc13
-	openjdk
-	(python311.withPackages (ps: with ps; [ipython]))
-	
+    ### File format-specific tools
 
- 	### File format-specific tools
+    ### Nix
+    rnix-lsp # language server
+    nix-direnv # nix intergration for direnv
+    alejandra # black-inspired formatting
+    statix # linter
 
-  ### Nix
-	rnix-lsp # language server
-	nix-direnv # nix intergration for direnv
-	alejandra # black-inspired formatting
-	statix # linter
+    ### Lua
+    lua-language-server
+    stylua
 
-  ### Lua
-	lua-language-server
-	stylua
+    ###Java
+		jdt-language-server
 
+    ### Web
+    nodePackages.vscode-langservers-extracted
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.prettier
+    nodePackages.eslint
 
-  ### Web
-	nodePackages.vscode-langservers-extracted
-	nodePackages.typescript
-	nodePackages.typescript-language-server
-	nodePackages.prettier
-	nodePackages.eslint
-
+    ### Typst
+		typst
+    typst-lsp
+    typstfmt
   ];
 
- programs = {
+  programs = {
     home-manager.enable = true;
-	git.enable = true;
+    git.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -108,26 +109,24 @@
         share = true;
       };
       shellAliases = {
-   		hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
-   		dots = "cd ~/.config/";
-		dev = "cd ~/Documents/Dev/";
+        hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
+        dots = "cd ~/.config/";
+        dev = "cd ~/Documents/Dev/";
         vi = "nvim";
         vim = "nvim";
         vimdiff = "nvim -d";
       };
     };
-	fzf = {
-		enable = true;
-		enableZshIntegration = true;
-		defaultCommand = "fd --type f";
-		changeDirWidgetCommand = "fd --type d";
-		fileWidgetCommand = "fd --type f";
-	};
-	starship.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      defaultCommand = "fd --type f";
+      changeDirWidgetCommand = "fd --type d";
+      fileWidgetCommand = "fd --type f";
+    };
+    starship.enable = true;
   };
 
-
-home.stateVersion = "23.05";
-systemd.user.startServices = "sd-switch";
-
+  home.stateVersion = "23.05";
+  systemd.user.startServices = "sd-switch";
 }
