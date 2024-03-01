@@ -38,8 +38,12 @@
 
   # Packages
   home.packages = with pkgs; [
-    ### Text editor
+    # text editor
     neovim
+
+		# shell / terminal
+		starship
+		zsh-autosuggestions
 
     ### CLI Tools
     btop
@@ -49,39 +53,38 @@
     gnumake
     platformio
     ripgrep
-    starship
     tmux
-    zsh-autosuggestions
+		rustup
 
-    ### build tools
+    # build tools
     cmake
     gcc13
     openjdk
     (python311.withPackages (ps: with ps; [ipython]))
 
-    ### File format-specific tools
+    # file format-specific tools
 
-    ### Nix
+    # nix
     rnix-lsp # language server
     nix-direnv # nix intergration for direnv
     alejandra # black-inspired formatting
     statix # linter
 
-    ### Lua
+    # lua
     lua-language-server
     stylua
 
-    ###Java
+    # java
 		jdt-language-server
 
-    ### Web
+    # web
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.prettier
     nodePackages.eslint
 
-    ### Typst
+    # typst
 		typst
     typst-lsp
     typstfmt
