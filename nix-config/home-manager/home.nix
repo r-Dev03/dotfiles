@@ -41,9 +41,9 @@
     # text editor
     neovim
 
-		# shell / terminal
-		starship
-		zsh-autosuggestions
+    # shell / terminal
+    starship
+    zsh-autosuggestions
 
     ### CLI Tools
     btop
@@ -54,7 +54,7 @@
     platformio
     ripgrep
     tmux
-		rustup
+    rustup
 
     # build tools
     cmake
@@ -75,7 +75,7 @@
     stylua
 
     # java
-		jdt-language-server
+    jdt-language-server
 
     # web
     nodePackages.vscode-langservers-extracted
@@ -85,7 +85,7 @@
     nodePackages.eslint
 
     # typst
-		typst
+    typst
     typst-lsp
     typstfmt
   ];
