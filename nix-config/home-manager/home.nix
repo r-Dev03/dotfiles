@@ -55,6 +55,7 @@
     ripgrep
     tmux
     rustup
+		tree
 
     # build tools
     cmake
