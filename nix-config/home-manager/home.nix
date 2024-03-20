@@ -38,8 +38,6 @@
 
   # Packages
   home.packages = with pkgs; [
-    # text editor
-    neovim
 
     # shell / terminal
     starship
@@ -55,7 +53,8 @@
     ripgrep
     tmux
     rustup
-		tree
+    tree
+    imagemagick
 
     # build tools
     cmake
@@ -98,6 +97,10 @@
       enable = true;
       nix-direnv.enable = true;
     };
+    neovim = {
+      enable = true;
+      extraLuaPackages = ps: [ps.magick];
+    };
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -114,11 +117,9 @@
       };
       shellAliases = {
         hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
+        matlab = "/Applications/MATLAB_R2023b.app/bin/matlab -nodesktop -nosplash";
         dots = "cd ~/.config/";
         dev = "cd ~/Documents/Dev/";
-        vi = "nvim";
-        vim = "nvim";
-        vimdiff = "nvim -d";
       };
     };
     fzf = {
