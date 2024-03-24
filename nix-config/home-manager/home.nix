@@ -43,7 +43,7 @@
     starship
     zsh-autosuggestions
 
-    ### CLI Tools
+    # CLI Tools
     btop
     fzf
     fd
@@ -54,7 +54,8 @@
     tmux
     rustup
     tree
-    imagemagick
+		yazi
+
 
     # build tools
     cmake
@@ -99,7 +100,7 @@
     };
     neovim = {
       enable = true;
-      extraLuaPackages = ps: [ps.magick];
+      # extraLuaPackages = ps: [ps.magick];
     };
     zsh = {
       enable = true;
