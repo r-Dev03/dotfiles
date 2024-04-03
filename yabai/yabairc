@@ -39,3 +39,4 @@ yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^MATLAB$" manage=off
 yabai -m rule --add app="^Discord$" manage=off
+yabai -m rule --add app="^Outlook$" manage=off
