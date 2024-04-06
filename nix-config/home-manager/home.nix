@@ -118,7 +118,7 @@
         hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
         matlab = "/Applications/MATLAB_R2023b.app/bin/matlab -nodesktop -nosplash";
         dots = "cd ~/.config/";
-        dev = "cd ~/Documents/Dev/";
+        dev = "cd ~/Developer/";
       };
     };
     fzf = {
