@@ -105,6 +105,7 @@
         export PATH=$HOME/Developer/utils/flutter/bin:$PATH
 				export PATH=$HOME/.gem/bin:$PATH
       '';
+
       initExtra = ''
 
       '';
