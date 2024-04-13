@@ -8,11 +8,6 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
   ];
 
   nixpkgs = {
@@ -35,9 +30,8 @@
     };
   };
 
-  # Packages
+  # packages
   home.packages = with pkgs; [
-
     # shell / terminal
     starship
     zsh-autosuggestions
@@ -53,7 +47,7 @@
     tmux
     rustup
     tree
-		yazi
+    yazi
 
     # build tools
     cmake
@@ -107,6 +101,13 @@
       syntaxHighlighting.enable = true;
       autocd = true;
       defaultKeymap = "emacs";
+      envExtra = ''
+        export PATH=$HOME/Developer/utils/flutter/bin:$PATH
+				export PATH=$HOME/.gem/bin:$PATH
+      '';
+      initExtra = ''
+
+      '';
       history = {
         size = 10000;
         save = 10000;
