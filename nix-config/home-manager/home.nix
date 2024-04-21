@@ -77,6 +77,10 @@
     nodePackages.prettier
     nodePackages.eslint
 
+    # go
+    go
+    gopls
+
     # typst
     typst
     typst-lsp
@@ -102,8 +106,8 @@
       autocd = true;
       defaultKeymap = "emacs";
       envExtra = ''
-        export PATH=$HOME/Developer/utils/flutter/bin:$PATH
-				export PATH=$HOME/.gem/bin:$PATH
+            export PATH=$HOME/Developer/utils/flutter/bin:$PATH
+        export PATH=$HOME/.gem/bin:$PATH
       '';
 
       initExtra = ''
