@@ -48,7 +48,7 @@
     rustup
     tree
     yazi
-		yq
+		yq-go
 
     # build tools
     cmake
