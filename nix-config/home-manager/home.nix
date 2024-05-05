@@ -48,7 +48,7 @@
     rustup
     tree
     yazi
-		yq-go
+    yq-go
 
     # build tools
     cmake
@@ -134,6 +134,13 @@
       defaultCommand = "fd --type f";
       changeDirWidgetCommand = "fd --type d";
       fileWidgetCommand = "fd --type f";
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    sioyek = {
+      enable = true;
     };
     starship.enable = true;
   };
