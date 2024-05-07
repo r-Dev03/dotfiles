@@ -38,14 +38,16 @@
 
     # CLI Tools
     btop
+		bat
+		eza
     fzf
     fd
     git
     gnumake
     platformio
     ripgrep
+		rustup
     tmux
-    rustup
     tree
     yazi
     yq-go
@@ -126,6 +128,7 @@
         matlab = "/Applications/MATLAB_R2023b.app/bin/matlab -nodesktop -nosplash";
         dots = "cd ~/.config/";
         dev = "cd ~/Developer/";
+				ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
       };
     };
     fzf = {
