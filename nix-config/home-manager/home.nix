@@ -56,7 +56,7 @@
     cmake
     gcc13
     openjdk
-    (python311.withPackages (ps: with ps; [ipython]))
+    (python311.withPackages (ps: with ps; [ipython black isort]))
 
     # file format-specific tools
 
