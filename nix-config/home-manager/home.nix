@@ -51,12 +51,14 @@
     tree
     yazi
     yq-go
+		uv
 
     # build tools
     cmake
     gcc13
     openjdk
     (python311.withPackages (ps: with ps; [ipython black isort]))
+		nodePackages.pyright
 
     # file format-specific tools
 
@@ -74,6 +76,7 @@
     jdt-language-server
 
     # web
+		nodejs_18
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript
     nodePackages.typescript-language-server
