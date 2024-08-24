@@ -46,7 +46,6 @@
     gnumake
     platformio
     ripgrep
-		rustup
     tmux
     tree
     yazi
@@ -63,7 +62,6 @@
     # file format-specific tools
 
     # nix
-    rnix-lsp # language server
     nix-direnv # nix intergration for direnv
     alejandra # black-inspired formatting
     statix # linter
@@ -91,6 +89,7 @@
     typst
     typst-lsp
     typstfmt
+
   ];
 
   programs = {
@@ -107,7 +106,7 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
       defaultKeymap = "emacs";
