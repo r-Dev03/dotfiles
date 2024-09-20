@@ -37,6 +37,7 @@
     zsh-autosuggestions
 
     # CLI Tools
+		age
     btop
 		bat
 		eza
@@ -48,6 +49,7 @@
     ripgrep
     tmux
     tree
+		tealdeer
     yazi
     yq-go
 		uv
