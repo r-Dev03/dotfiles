@@ -59,7 +59,7 @@
     gcc13
     openjdk
     (python311.withPackages (ps: with ps; [ipython black isort]))
-		nodePackages.pyright
+		# nodePackages.pyright
 
     # file format-specific tools
 
@@ -76,7 +76,6 @@
     jdt-language-server
 
     # web
-		nodejs_18
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript
     nodePackages.typescript-language-server
@@ -113,12 +112,18 @@
       autocd = true;
       defaultKeymap = "emacs";
       envExtra = ''
-            export PATH=$HOME/Developer/utils/flutter/bin:$PATH
-        export PATH=$HOME/.gem/bin:$PATH
+				export PATH=$HOME/Developer/utils/flutter/bin:$PATH
+				export PATH=$HOME/.gem/bin:$PATH
       '';
 
       initExtra = ''
-
+				_fzf_compgen_path() {
+					fd --exclude ".git" --exclude ".*" . "$1"
+				}
+				export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+				export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+				bindkey '^ ' autosuggest-accept
+				bindkey -r '\ec'
       '';
       history = {
         size = 10000;
@@ -128,11 +133,12 @@
         share = true;
       };
       shellAliases = {
-        hmbuild = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
+        hms = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
         matlab = "/Applications/MATLAB_R2023b.app/bin/matlab -nodesktop -nosplash";
         dots = "cd ~/.config/";
         dev = "cd ~/Developer/";
 				ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
+				vim = "nvim";
       };
     };
     fzf = {
