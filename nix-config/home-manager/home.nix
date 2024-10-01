@@ -112,7 +112,7 @@
       autocd = true;
       defaultKeymap = "emacs";
       envExtra = ''
-				export PATH=$HOME/Developer/utils/flutter/bin:$PATH
+				export PATH=$HOME/Developer/utils/flutter/
 				export PATH=$HOME/.gem/bin:$PATH
       '';
 
