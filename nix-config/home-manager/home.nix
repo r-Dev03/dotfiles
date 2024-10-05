@@ -96,6 +96,7 @@
   programs = {
     home-manager.enable = true;
     git.enable = true;
+		git.delta.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -112,13 +113,11 @@
       autocd = true;
       defaultKeymap = "emacs";
       envExtra = ''
-				export PATH=$HOME/Developer/utils/flutter/
 				export PATH=$HOME/.gem/bin:$PATH
       '';
+			# export PATH=$HOME/Developer/utils/flutter/
 
       initExtra = ''
-				export FZF_DEFAULT_COMMAND="fd --type f --strip-cwd-prefix"
-				export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 				bindkey '^ ' autosuggest-accept
 				bindkey -r '\ec'
       '';
@@ -138,12 +137,24 @@
 				vim = "nvim";
       };
     };
+		git.extraConfig = {
+			diff.tool = "nvimdiff";
+			difftool.prompt = false;
+		};
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand = "fd --type f";
+      defaultCommand = "fd --strip-cwd-prefix";
+			defaultOptions = [
+			"--height=50%"
+			"--layout=reverse"
+			"--info=inline"
+			"--border" 
+			"--margin=1"
+			"--padding=1"
+			];
       changeDirWidgetCommand = "fd --type d";
-      fileWidgetCommand = "fd --type f";
+      fileWidgetCommand = "fd --type f --strip-cwd-prefix --exclude .git";
     };
     zoxide = {
       enable = true;
