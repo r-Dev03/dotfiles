@@ -37,10 +37,10 @@
     zsh-autosuggestions
 
     # CLI Tools
-		age
+    age
     btop
-		bat
-		eza
+    bat
+    eza
     fzf
     fd
     git
@@ -49,17 +49,17 @@
     ripgrep
     tmux
     tree
-		tealdeer
+    tealdeer
     yazi
     yq-go
-		uv
+    uv
 
     # build tools
     cmake
     gcc13
     openjdk
     (python311.withPackages (ps: with ps; [ipython black isort]))
-		# nodePackages.pyright
+    # nodePackages.pyright
 
     # file format-specific tools
 
@@ -90,13 +90,12 @@
     typst
     typst-lsp
     typstfmt
-
   ];
 
   programs = {
     home-manager.enable = true;
     git.enable = true;
-		git.delta.enable = true;
+    git.delta.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -113,13 +112,13 @@
       autocd = true;
       defaultKeymap = "emacs";
       envExtra = ''
-				export PATH=$HOME/.gem/bin:$PATH
+        export PATH=$HOME/.gem/bin:$PATH
       '';
-			# export PATH=$HOME/Developer/utils/flutter/
+      # export PATH=$HOME/Developer/utils/flutter/
 
       initExtra = ''
-				bindkey '^ ' autosuggest-accept
-				bindkey -r '\ec'
+        bindkey '^ ' autosuggest-accept
+        bindkey -r '\ec'
       '';
       history = {
         size = 10000;
@@ -129,39 +128,36 @@
         share = true;
       };
       shellAliases = {
-        hms = "home-manager switch --flake /Users/r-dev/.config/nix-config#r-dev@rdev-mba";
+        hms = "home-manager switch --flake $HOME/.config/nix-config#r-dev@rdev-mba";
         matlab = "/Applications/MATLAB_R2023b.app/bin/matlab -nodesktop -nosplash";
         dots = "cd ~/.config/";
         dev = "cd ~/Developer/";
-				ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
-				vim = "nvim";
+        ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
+        vim = "nvim";
       };
     };
-		git.extraConfig = {
-			diff.tool = "nvimdiff";
-			difftool.prompt = false;
-		};
+    git.extraConfig = {
+      diff.tool = "nvimdiff";
+      difftool.prompt = false;
+    };
     fzf = {
       enable = true;
       enableZshIntegration = true;
       defaultCommand = "fd --strip-cwd-prefix";
-			defaultOptions = [
-			"--height=50%"
-			"--layout=reverse"
-			"--info=inline"
-			"--border" 
-			"--margin=1"
-			"--padding=1"
-			];
+      defaultOptions = [
+        "--height=50%"
+        "--layout=reverse"
+        "--info=inline"
+        "--border"
+        "--margin=1"
+        "--padding=1"
+      ];
       changeDirWidgetCommand = "fd --type d";
       fileWidgetCommand = "fd --type f --strip-cwd-prefix --exclude .git";
     };
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-    };
-    sioyek = {
-      enable = true;
     };
     starship.enable = true;
   };
