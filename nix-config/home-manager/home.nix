@@ -150,6 +150,8 @@
         dots = "cd ~/.config/";
         dev = "cd ~/Developer/";
         ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
+				lh = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all";
+				la = "eza --color=always --long --git --icons=always";
         vim = "nvim";
       };
     };
