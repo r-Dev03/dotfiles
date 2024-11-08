@@ -41,6 +41,7 @@
     btop
     bat
     eza
+		fastfetch
     fzf
     fd
     git
@@ -119,6 +120,22 @@
       initExtra = ''
         bindkey '^ ' autosuggest-accept
         bindkey -r '\ec'
+
+				fs() {
+					session=$(find $HOME/Developer $HOME/Developer/projects $HOME/.config/ -mindepth 0 -maxdepth 1 -type d | fzf)
+						session_name=$(basename "$session" | tr . _)
+
+						if ! tmux has-session -t "$session_name" 2> /dev/null; then
+							tmux new-session -d -s "$session_name" -c "$session"
+								fi
+
+								if [[ -z $TMUX ]]; then
+									tmux attach-session -t $session_name
+								else
+									tmux switch-client -t $session_name
+										fi
+				}
+
       '';
       history = {
         size = 10000;
