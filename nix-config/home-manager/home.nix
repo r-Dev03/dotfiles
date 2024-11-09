@@ -27,6 +27,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       DOTFILES = "$HOME/.dotfiles/";
+      MANPAGER = "nvim +Man!";
     };
   };
 
@@ -41,7 +42,7 @@
     btop
     bat
     eza
-		fastfetch
+    fastfetch
     fzf
     fd
     git
@@ -97,14 +98,17 @@
     home-manager.enable = true;
     git.enable = true;
     git.delta.enable = true;
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
+
     neovim = {
       enable = true;
       # extraLuaPackages = ps: [ps.magick];
     };
+
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -112,31 +116,33 @@
       syntaxHighlighting.enable = true;
       autocd = true;
       defaultKeymap = "emacs";
+
       envExtra = ''
         export PATH=$HOME/.gem/bin:$PATH
       '';
       # export PATH=$HOME/Developer/utils/flutter/
 
       initExtra = ''
-        bindkey '^ ' autosuggest-accept
-        bindkey -r '\ec'
+            bindkey '^ ' autosuggest-accept
+            bindkey -r '\ec'
 
-				fs() {
-					session=$(find $HOME/Developer $HOME/Developer/projects $HOME/.config/ -mindepth 0 -maxdepth 1 -type d | fzf)
-						session_name=$(basename "$session" | tr . _)
+        fs() {
+        	session=$(find $HOME/Developer $HOME/Developer/projects $HOME/.config/ -mindepth 0 -maxdepth 1 -type d | fzf)
+        		session_name=$(basename "$session" | tr . _)
 
-						if ! tmux has-session -t "$session_name" 2> /dev/null; then
-							tmux new-session -d -s "$session_name" -c "$session"
-								fi
+        		if ! tmux has-session -t "$session_name" 2> /dev/null; then
+        			tmux new-session -d -s "$session_name" -c "$session"
+        				fi
 
-								if [[ -z $TMUX ]]; then
-									tmux attach-session -t $session_name
-								else
-									tmux switch-client -t $session_name
-										fi
-				}
+        				if [[ -z $TMUX ]]; then
+        					tmux attach-session -t $session_name
+        				else
+        					tmux switch-client -t $session_name
+        						fi
+        }
 
       '';
+
       history = {
         size = 10000;
         save = 10000;
@@ -144,21 +150,28 @@
         expireDuplicatesFirst = true;
         share = true;
       };
+
       shellAliases = {
         hms = "home-manager switch --flake $HOME/.config/nix-config#r-dev@rdev-mba";
         matlab = "/Applications/MATLAB_R2023b.app/bin/matlab -nodesktop -nosplash";
         dots = "cd ~/.config/";
         dev = "cd ~/Developer/";
         ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
-				lh = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all";
-				la = "eza --color=always --long --git --icons=always";
+        lh = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all";
+        la = "eza --color=always --long --git --icons=always";
+        mkdir = "mkdir -pv";
+        cp = "cp -iv";
+        mv = "mv -iv";
+        rm = "rm -iv";
         vim = "nvim";
       };
     };
+
     git.extraConfig = {
       diff.tool = "nvimdiff";
       difftool.prompt = false;
     };
+
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -174,10 +187,12 @@
       changeDirWidgetCommand = "fd --type d";
       fileWidgetCommand = "fd --type f --strip-cwd-prefix --exclude .git";
     };
+
     zoxide = {
       enable = true;
       enableZshIntegration = true;
     };
+
     starship.enable = true;
   };
 
