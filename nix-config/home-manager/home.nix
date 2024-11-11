@@ -31,6 +31,14 @@
     };
   };
 
+	nix = {
+		gc = {
+			automatic = true;
+			frequency = "weekly";
+			options = "--delete-older-than 7d";
+		};
+	};
+
   # packages
   home.packages = with pkgs; [
     # shell / terminal
@@ -66,6 +74,7 @@
     # file format-specific tools
 
     # nix
+		nixd # nix language server
     nix-direnv # nix intergration for direnv
     alejandra # black-inspired formatting
     statix # linter
