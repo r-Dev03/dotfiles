@@ -1,0 +1,12 @@
+.DS_Store
+nvim
+direnv/
+flutter/
+rstudio/
+github-copilot/
+git/
+aerc/
+plugins/
+themes
+configstore
+btop.log
