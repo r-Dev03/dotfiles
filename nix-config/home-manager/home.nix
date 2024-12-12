@@ -12,6 +12,7 @@
 
   nixpkgs = {
     overlays = [
+		(import ../pkgs)
     ];
 
     config = {
@@ -23,22 +24,27 @@
 
   home = {
     username = "r-dev";
-    homeDirectory = "/Users/r-dev";
+    homeDirectory = 
+		if pkgs.stdenv.isLinux
+		then "/home/r-dev"
+		else "/Users/r-dev";
     sessionVariables = {
       EDITOR = "nvim";
-			VISUAL = "nvim";
+      VISUAL = "nvim";
       DOTFILES = "$HOME/.dotfiles/";
       MANPAGER = "nvim +Man!";
     };
   };
 
-	nix = {
-		gc = {
-			automatic = true;
-			frequency = "weekly";
-			options = "--delete-older-than 7d";
-		};
-	};
+  nix = {
+    gc = {
+      automatic = true;
+      frequency = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
+
+  fonts.fontconfig.enable = true;
 
   # packages
   home.packages = with pkgs; [
@@ -47,7 +53,7 @@
     zsh-autosuggestions
 
     # CLI Tools
-		aerc
+    aerc
     # age
     btop
     bat
@@ -56,9 +62,9 @@
     fzf
     fd
     git
-		gnupg
+    gnupg
     gnumake
-		lynx
+    lynx
     platformio
     ripgrep
     tmux
@@ -78,7 +84,7 @@
     # file format-specific tools
 
     # nix
-		nixd # nix language server
+    nixd # nix language server
     nix-direnv # nix intergration for direnv
     alejandra # black-inspired formatting
     statix # linter
@@ -103,8 +109,13 @@
 
     # typst
     typst
-    typst-lsp
     typstfmt
+
+    # Fonts
+    nerd-fonts.blex-mono
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.caskaydia-cove
   ];
 
   programs = {

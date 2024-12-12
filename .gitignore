@@ -2,6 +2,7 @@
 nvim
 direnv/
 flutter/
+fontconfig/
 rstudio/
 github-copilot/
 git/
