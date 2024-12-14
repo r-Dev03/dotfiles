@@ -49,9 +49,9 @@
 # 
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
-# font-family=CaskaydiaCove Nerd Font
-font-family = BlexMono Nerd Font
-# font-family = ligalex mono
+# font-family = CaskaydiaCove Nerd Font
+# font-family = BlexMono Nerd Font
+font-family = ligalex mono for powerline 
 
 font-family-bold = 
 font-family-italic = 
@@ -320,6 +320,7 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 # 
 #   - macOS: titlebar tabs style is not updated when switching themes.
 # 
+# theme = catppuccin-mocha
 theme = aki
 
 # Background color for the window.
@@ -895,7 +896,7 @@ keybind = super+v=paste_from_clipboard
 # left padding to 2 and the right padding to 4. If you want to set both
 # paddings to the same value, you can use a single value. For example,
 # `window-padding-x = 2` will set both paddings to 2.
-window-padding-x = 2
+window-padding-x = 5
 
 # Vertical window padding. This applies padding between the terminal cells and
 # the top and bottom window borders. The value is in points, meaning that it
@@ -914,7 +915,7 @@ window-padding-x = 2
 # top padding to 2 and the bottom padding to 4. If you want to set both
 # paddings to the same value, you can use a single value. For example,
 # `window-padding-y = 2` will set both paddings to 2.
-window-padding-y = 2
+window-padding-y = 5
 
 # The viewport dimensions are usually not perfectly divisible by the cell
 # size. In this case, some extra padding on the end of a column and the bottom
@@ -928,7 +929,7 @@ window-padding-y = 2
 # apply. The other padding is applied first and may affect how many grid cells
 # actually exist, and this is applied last in order to balance the padding
 # given a certain viewport size and grid cell size.
-window-padding-balance = false
+window-padding-balance = true
 
 # The color of the padding area of the window. Valid values are:
 # 
