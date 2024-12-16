@@ -151,7 +151,7 @@
             bindkey -r '\ec'
 
         fs() {
-        	session=$(find $HOME/dev $HOME/dev/scratch $HOME/.config/ -mindepth 0 -maxdepth 1 -type d | fzf)
+        	session=$(find ~/dev ~/dev/scratch ~/.config -mindepth 0 -maxdepth 1 -type d | fzf)
         		session_name=$(basename "$session" | tr . _)
 
         		if ! tmux has-session -t "$session_name" 2> /dev/null; then
@@ -171,6 +171,7 @@
         size = 10000;
         save = 10000;
         ignoreDups = true;
+				ignoreAllDups = true;
         expireDuplicatesFirst = true;
         share = true;
       };
@@ -178,8 +179,6 @@
       shellAliases = {
         hms = "home-manager switch --flake $HOME/.config/nix-config#r-dev@rdev-mba";
         matlab = "/Applications/MATLAB_R2023b.app/bin/matlab -nodesktop -nosplash";
-        dots = "cd ~/.config/";
-        dev = "cd ~/Dev/";
         ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
         lh = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all";
         la = "eza --color=always --long --git --icons=always";
