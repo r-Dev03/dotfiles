@@ -64,7 +64,6 @@
     git
     gnupg
     gnumake
-    lynx
     platformio
     ripgrep
     tmux
