@@ -1,5 +1,5 @@
 nvim
-.direnv
+.direnv/
 .luarc.json
 .DS_Store
 direnv/
