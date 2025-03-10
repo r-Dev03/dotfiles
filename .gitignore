@@ -1,6 +1,7 @@
-.DS_Store
 nvim
-.direnv/
+.direnv
+.luarc.json
+.DS_Store
 direnv/
 flutter/
 fontconfig/
@@ -12,4 +13,3 @@ plugins/
 themes
 configstore
 btop.log
-.luarc.json
