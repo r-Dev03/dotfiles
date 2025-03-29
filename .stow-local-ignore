@@ -1,0 +1,9 @@
+\.git
+\.gitignore
+\.gitmodules
+\.envrc
+\.direnv
+\.editorconfig
+\.stylua\.toml
+flake\.(nix|lock)
+host
