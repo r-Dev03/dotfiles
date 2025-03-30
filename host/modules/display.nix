@@ -52,7 +52,6 @@
     })
 
     # Hyprland
-    font-awesome
     hyprshot
     hypridle
     hyprlock

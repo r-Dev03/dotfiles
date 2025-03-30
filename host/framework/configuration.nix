@@ -128,6 +128,7 @@
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     nerd-fonts.blex-mono
+		nerd-fonts.symbols-only
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
