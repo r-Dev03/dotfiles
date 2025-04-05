@@ -2,16 +2,32 @@
 {
   config,
   pkgs,
+  ags,
   ...
-}: {
+}: let
+  system = "x86_64-linux";
+  astallibs = with ags.packages.${system}; [
+    # hyprland
+    battery
+    # apps
+    # wireplumber
+    # bluetooth
+    # notifd
+    # mpris
+    # pkgs.libgtop
+  ];
+  ags_package = (
+    ags.packages.${system}.ags.override {
+      extraPackages = astallibs;
+    }
+  );
+in {
   # Display Manager (SDDM)
 
   services = {
     displayManager.sddm = {
       enable = false;
       wayland.enable = true;
-      theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm; # Use Qt6 version
     };
 
     # Enable the X11 windowing system.
@@ -42,16 +58,15 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Add the Catppuccin SDDM theme package
-    (catppuccin-sddm.override {
-      flavor = "mocha";
-      font = "JetBrains Mono";
-      fontSize = "13";
-      # background = ./wallpaper.png; # Path to your wallpaper
-      loginBackground = true;
-    })
+    # (
+    #   ags.packages.${system}.ags.override
+    #   {
+    #     extraPackages = with ags.packages.${system}; [
+    #       battery
+    #     ];
+    #   }
+    # )
 
-    # Hyprland
     hyprshot
     hypridle
     hyprlock

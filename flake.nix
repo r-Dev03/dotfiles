@@ -5,15 +5,16 @@
     # Nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Latest packages
     nixos-hardware.url = "github:NixOS/nixos-hardware"; # Optional for hardware-specific configs
+    ags.url = "github:aylur/ags";
   };
 
-  outputs = { 
+  outputs = {
     self,
-    nixpkgs, 
-    nixos-hardware, 
-    ... 
-  }: 
-  {
+    nixpkgs,
+    nixos-hardware,
+		ags,
+    ...
+  }: {
     nixosConfigurations = {
       # Framework Laptop Configuration
       framework = nixpkgs.lib.nixosSystem {
@@ -27,7 +28,7 @@
         ];
       };
 
-      # Desktop PC Configuration 
+      # Desktop PC Configuration
       # desktop = nixpkgs.lib.nixosSystem {
       #   system = "x86_64-linux";
       #   modules = [
@@ -38,4 +39,3 @@
     };
   };
 }
-
