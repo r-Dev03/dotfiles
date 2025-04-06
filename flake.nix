@@ -12,13 +12,16 @@
     self,
     nixpkgs,
     nixos-hardware,
-		ags,
+    ags,
     ...
   }: {
     nixosConfigurations = {
       # Framework Laptop Configuration
       framework = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {
+          inherit ags;
+        };
         modules = [
           ./host/framework/configuration.nix
           ./host/framework/hardware-configuration.nix

@@ -6,22 +6,8 @@
   ...
 }: let
   system = "x86_64-linux";
-  astallibs = with ags.packages.${system}; [
-    # hyprland
-    battery
-    # apps
-    # wireplumber
-    # bluetooth
-    # notifd
-    # mpris
-    # pkgs.libgtop
-  ];
-  ags_package = (
-    ags.packages.${system}.ags.override {
-      extraPackages = astallibs;
-    }
-  );
-in {
+in 
+{
   # Display Manager (SDDM)
 
   services = {
@@ -56,17 +42,7 @@ in {
       # xwayland.enable = true;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    # (
-    #   ags.packages.${system}.ags.override
-    #   {
-    #     extraPackages = with ags.packages.${system}; [
-    #       battery
-    #     ];
-    #   }
-    # )
-
+environment.systemPackages = (with ags; [packages.${system}.ags]) ++ (with pkgs; [ 
     hyprshot
     hypridle
     hyprlock
@@ -79,5 +55,15 @@ in {
 
     # GUI
     discord
-  ];
+  ]);
 }
+
+    # (
+    #   ags.packages.${system}.ags.override
+    #   {
+    #     extraPackages = with ags.packages.${system}; [
+    #       battery
+    #     ];
+    #   }
+    # )
+
