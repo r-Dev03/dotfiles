@@ -6,8 +6,7 @@
   ...
 }: let
   system = "x86_64-linux";
-in 
-{
+in {
   # Display Manager (SDDM)
 
   services = {
@@ -42,28 +41,22 @@ in
       # xwayland.enable = true;
     };
   };
-environment.systemPackages = (with ags; [packages.${system}.ags]) ++ (with pkgs; [ 
-    hyprshot
-    hypridle
-    hyprlock
-    hyprpaper
-    libnotify
-    swaynotificationcenter
-    waybar
-    wofi
-    wl-clipboard
 
-    # GUI
-    discord
-  ]);
+  environment.systemPackages =
+    (with ags; [packages.${system}.ags])
+    ++ (with pkgs; [
+      hyprshot
+      hypridle
+      hyprlock
+      hyprpaper
+      libnotify
+      swaynotificationcenter
+      waybar
+      wofi
+      wl-clipboard
+
+      # GUI
+      discord
+      nautilus
+    ]);
 }
-
-    # (
-    #   ags.packages.${system}.ags.override
-    #   {
-    #     extraPackages = with ags.packages.${system}; [
-    #       battery
-    #     ];
-    #   }
-    # )
-
