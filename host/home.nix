@@ -16,7 +16,6 @@
     btop
     bat
     eza
-    fzf
     fd
     gnupg
     gnumake
@@ -29,7 +28,6 @@
     tree
     tealdeer
     uv
-    vim
     wezterm
 
     # language servers & formatters
@@ -62,34 +60,46 @@
     wofi
     wl-clipboard
 
-    # GUI applications
-    discord
-    nautilus
-
     # Build tools
     cmake
 
+    # System
     brightnessctl
     pavucontrol
     networkmanagerapplet
     wget
+
+    # GUI
+    discord
+    nautilus
   ];
 
-  # Environment variables from configuration.nix
-  home.sessionVariables = {
-  };
-
-  # Program configurations
   programs = {
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
 
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      defaultCommand = "fd --strip-cwd-prefix";
+      defaultOptions = [
+        "--height=50%"
+        "--layout=reverse"
+        "--info=inline"
+        "--border"
+        "--margin=1"
+        "--padding=1"
+      ];
+      changeDirWidgetCommand = "fd --type d";
+      fileWidgetCommand = "fd --type f --strip-cwd-prefix --exclude .git";
+    };
+
     git = {
       enable = true;
-      # userName = "Your Name";
-      # userEmail = "your@email.com";
+      userName = "Ribbal Hussain";
+      userEmail = "ribbalh0@gmail.com";
     };
 
     neovim = {
@@ -99,12 +109,49 @@
     zsh = {
       enable = true;
       syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
+      defaultKeymap = "viins";
+      envExtra = ''
+      '';
+
+      initExtra = ''
+        if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+        	exec Hyprland
+        		fi
+
+            bindkey '^ ' autosuggest-accept
+            bindkey -r '\ec'
+      '';
+
+      history = {
+        size = 10000;
+        save = 10000;
+        ignoreDups = true;
+        ignoreAllDups = true;
+        expireDuplicatesFirst = true;
+        share = true;
+      };
+
+      shellAliases = {
+        ls = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions";
+        lh = "eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --all";
+        la = "eza --color=always --long --git --icons=always";
+        mkdir = "mkdir -pv";
+        cp = "cp -iv";
+        mv = "mv -iv";
+        rm = "rm -iv";
+        vim = "nvim";
+      };
     };
 
     starship = {
       enable = true;
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     home-manager.enable = true;

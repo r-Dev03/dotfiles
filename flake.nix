@@ -31,13 +31,14 @@
         modules = [
           ./host/framework/configuration.nix
           ./host/framework/hardware-configuration.nix
+          nixos-hardware.nixosModules.framework-13-7040-amd
 
           # Add Home Manager as a module
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ron = import ./host/home.nix;
+            home-manager.users.ron = ./host/home.nix;
           }
         ];
       };

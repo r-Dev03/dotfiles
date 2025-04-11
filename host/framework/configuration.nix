@@ -10,11 +10,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   imports = [
     # Include the results of the hardware scan.
-    ../modules/vim.nix
-    ../modules/shell.nix
-    ../modules/display.nix
     ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
   # Bootloader.
@@ -54,6 +50,7 @@ in {
 
   security = {
     rtkit.enable = true;
+    polkit.enable = true;
     pam.services.sddm.enableGnomeKeyring = true;
   };
 
@@ -113,14 +110,17 @@ in {
     defaultUserShell = pkgs.zsh;
     users.ron = {
       isNormalUser = true;
+      useDefaultShell = true;
       description = "ron";
       extraGroups = ["networkmanager" "wheel"];
     };
   };
 
   programs = {
-    firefox.enable = true;
     nano.enable = false; # garbage
+    firefox.enable = true;
+    zsh.enable = true;
+    git.enable = true;
 
     hyprland = {
       enable = true;
@@ -128,23 +128,23 @@ in {
     };
   };
 
-  environment.systemPackages =
-    (with ags; [packages.${system}.ags])
-    ++ (with pkgs; [
-      brightnessctl
-      pavucontrol
-      networkmanagerapplet
-      wget
-    ]);
+  environment = {
+    systemPackages =
+      (with ags; [packages.${system}.ags])
+      ++ (with pkgs; [
+        coreutils
+        vim
+      ]);
 
-  variables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    MANPAGER = "nvim +Man!";
-    NIXOS_OZONE_WL = "1";
-    GDK_BACKEND = "wayland";
-    XDG_SESSION_TYPE = "wayland";
-    MOZ_ENABLE_WAYLAND = 1;
+    variables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      MANPAGER = "nvim +Man!";
+      NIXOS_OZONE_WL = "1";
+      GDK_BACKEND = "wayland";
+      XDG_SESSION_TYPE = "wayland";
+      MOZ_ENABLE_WAYLAND = 1;
+    };
   };
 
   nix = {
