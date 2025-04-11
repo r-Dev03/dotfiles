@@ -17,9 +17,9 @@ setopt EXTENDED_HISTORY          # Save timestamps in history
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks from commands
 setopt HIST_VERIFY               # Verify before executing history expansion
 
-if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-  exec dbus-run-session Hyprland
-fi
+# if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+#   exec dbus-run-session Hyprland
+# fi
 
 
 
