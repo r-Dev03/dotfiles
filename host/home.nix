@@ -8,6 +8,27 @@
   home.homeDirectory = "/home/ron";
   home.stateVersion = "24.05";
 
+  # gtk.enable = true;
+  stylix = {
+    cursor = {
+      name = "rose-pine-hyprcursor";
+      package = pkgs.rose-pine-hyprcursor;
+      size = 24;
+    };
+    targets = {
+      neovim.enable = false;
+      wofi.enable = false;
+      tmux.enable = false;
+      vim.enable = false;
+      wezterm.enable = false;
+			starship.enable = false;
+			fzf.enable = false;
+			waybar.enable = false;
+      kitty.enable = false;
+      ghostty.enable = false;
+    };
+  };
+
   # Combined packages from shell.nix and vim.nix
   home.packages = with pkgs; [
     # Shell tools
@@ -52,6 +73,9 @@
     hypridle
     hyprlock
     hyprpaper
+
+    # theme stuff
+    rose-pine-cursor
 
     # Desktop utilities
     libnotify

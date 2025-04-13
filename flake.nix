@@ -6,6 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Latest packages
     nixos-hardware.url = "github:NixOS/nixos-hardware"; # Optional for hardware-specific configs
     ags.url = "github:aylur/ags";
+    stylix.url = "github:danth/stylix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,7 +21,7 @@
     ags,
     home-manager,
     ...
-  }: {
+  }@inputs: {
     nixosConfigurations = {
       # Framework Laptop Configuration
       framework = nixpkgs.lib.nixosSystem {
@@ -31,6 +32,7 @@
         modules = [
           ./host/framework/configuration.nix
           ./host/framework/hardware-configuration.nix
+					inputs.stylix.nixosModules.stylix
           nixos-hardware.nixosModules.framework-13-7040-amd
 
           # Add Home Manager as a module
