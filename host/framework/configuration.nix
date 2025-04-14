@@ -16,12 +16,16 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = "backup"; 
+    backupFileExtension = "backup";
   };
 
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
+    # fonts.monospace = {
+    #   name = "Atkinson Hyperlegible Mono";
+    #   package = inputs.nixpkgs-unstable.legacyPackages.${system}.atkinson-hyperlegible-mono;
+    # };
     targets.gtk.enable = true;
   };
 
@@ -71,6 +75,8 @@ in {
   };
 
   services = {
+    gvfs.enable = true;
+    udisks2.enable = true;
     displayManager.sddm = {
       enable = false;
       wayland.enable = true;

@@ -8,11 +8,18 @@
   home.homeDirectory = "/home/ron";
   home.stateVersion = "24.05";
 
-  # gtk.enable = true;
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "papirus-icon-theme";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
   stylix = {
     cursor = {
-      name = "rose-pine-hyprcursor";
-      package = pkgs.rose-pine-hyprcursor;
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
       size = 24;
     };
     targets = {
@@ -21,9 +28,9 @@
       tmux.enable = false;
       vim.enable = false;
       wezterm.enable = false;
-			starship.enable = false;
-			fzf.enable = false;
-			waybar.enable = false;
+      starship.enable = false;
+      fzf.enable = false;
+      waybar.enable = false;
       kitty.enable = false;
       ghostty.enable = false;
     };
@@ -75,7 +82,7 @@
     hyprpaper
 
     # theme stuff
-    rose-pine-cursor
+    adwaita-icon-theme
 
     # Desktop utilities
     libnotify
@@ -91,11 +98,14 @@
     brightnessctl
     pavucontrol
     networkmanagerapplet
+    udiskie
     wget
 
     # GUI
     discord
     nautilus
+    zathura
+    swayimg
   ];
 
   programs = {
