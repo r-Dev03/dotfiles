@@ -22,10 +22,26 @@ in {
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
-    # fonts.monospace = {
-    #   name = "Atkinson Hyperlegible Mono";
-    #   package = inputs.nixpkgs-unstable.legacyPackages.${system}.atkinson-hyperlegible-mono;
-    # };
+
+    fonts.monospace = {
+      name = "Atkinson Hyperlegible Mono"; # Font name as recognized by Fontconfig
+      package = pkgs.atkinson-hyperlegible-mono; # Font package
+    };
+
+    fonts.sansSerif = {
+      name = "JetBrains Mono";
+      package = pkgs.jetbrains-mono;
+    };
+
+    fonts.serif = {
+      name = "Liberation Serif";
+      package = pkgs.liberation_ttf;
+    };
+
+    fonts.emoji = {
+      name = "Noto Color Emoji";
+      package = pkgs.noto-fonts-emoji;
+    };
     targets.gtk.enable = true;
   };
 
@@ -177,12 +193,26 @@ in {
     };
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.blex-mono
-    nerd-fonts.symbols-only
-  ];
+
+  fonts = {
+    enableDefaultPackages = true; # Include default system fonts for fallback
+    packages = with pkgs; [
+      jetbrains-mono # Add JetBrains Mono
+      atkinson-hyperlegible-mono # Add Atkinson Hyperlegible Mono from unstable
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.blex-mono
+      nerd-fonts.symbols-only
+    ];
+    fontconfig = {
+      enable = true; # Enable Fontconfig for system-wide font settings
+      defaultFonts = {
+        monospace = ["Atkinson Hyperlegible Mono"]; # Set default monospace font
+        sansSerif = ["JetBrains Mono"]; # Example sans-serif fallback
+        serif = ["Liberation Serif"]; # Example serif fallback
+      };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
