@@ -24,8 +24,8 @@ in {
     base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
 
     fonts.monospace = {
-      name = "Atkinson Hyperlegible Mono"; # Font name as recognized by Fontconfig
-      package = pkgs.atkinson-hyperlegible-mono; # Font package
+      name = "Commit Mono"; # Font name as recognized by Fontconfig
+      package = pkgs.commit-mono;
     };
 
     fonts.sansSerif = {
@@ -193,21 +193,21 @@ in {
     };
   };
 
-
   fonts = {
     enableDefaultPackages = true; # Include default system fonts for fallback
     packages = with pkgs; [
-      jetbrains-mono # Add JetBrains Mono
-      atkinson-hyperlegible-mono # Add Atkinson Hyperlegible Mono from unstable
-      nerd-fonts.fira-code
+      font-awesome
+      jetbrains-mono 
       nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
       nerd-fonts.blex-mono
       nerd-fonts.symbols-only
+			nerd-fonts.commit-mono
     ];
     fontconfig = {
       enable = true; # Enable Fontconfig for system-wide font settings
       defaultFonts = {
-        monospace = ["Atkinson Hyperlegible Mono"]; # Set default monospace font
+        monospace = ["Commit Mono"]; # Set default monospace font
         sansSerif = ["JetBrains Mono"]; # Example sans-serif fallback
         serif = ["Liberation Serif"]; # Example serif fallback
       };
