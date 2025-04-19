@@ -106,6 +106,7 @@
     nautilus
     zathura
     swayimg
+		google-chrome
   ];
 
   programs = {
