@@ -104,9 +104,7 @@
     # GUI
     discord
     nautilus
-    zathura
-    swayimg
-		google-chrome
+    google-chrome
   ];
 
   programs = {
@@ -138,6 +136,10 @@
     };
 
     neovim = {
+      enable = true;
+    };
+
+    swayimg = {
       enable = true;
     };
 
@@ -177,6 +179,7 @@
         mv = "mv -iv";
         rm = "rm -iv";
         vim = "nvim";
+        open = "xdg-open";
       };
     };
 
@@ -187,6 +190,10 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+    };
+
+    zathura = {
+      enable = true;
     };
 
     home-manager.enable = true;
