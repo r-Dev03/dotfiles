@@ -44,6 +44,7 @@
     btop
     bat
     eza
+		evince
     fd
     gnupg
     gnumake
@@ -56,6 +57,7 @@
     tree
     tealdeer
     uv
+		unzip
     wezterm
 
     # language servers & formatters
@@ -192,9 +194,9 @@
       enableZshIntegration = true;
     };
 
-    zathura = {
-      enable = true;
-    };
+    # zathura = {
+    #   enable = true;
+    # };
 
     home-manager.enable = true;
   };
