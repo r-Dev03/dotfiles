@@ -10,8 +10,12 @@
 
   gtk = {
     enable = true;
+    # theme = {
+    #   name = "Catppuccin-Macchiato-Blue-Dark";
+    #   package = pkgs.catppuccin-gtk;
+    # };
     iconTheme = {
-      name = "papirus-icon-theme";
+      name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
   };
@@ -44,7 +48,7 @@
     btop
     bat
     eza
-		evince
+    evince
     fd
     gnupg
     gnumake
@@ -57,7 +61,7 @@
     tree
     tealdeer
     uv
-		unzip
+    unzip
     wezterm
 
     # language servers & formatters

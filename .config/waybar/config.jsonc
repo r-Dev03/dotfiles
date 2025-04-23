@@ -17,9 +17,8 @@
         "clock",
     ],
     "modules-right": [
-        "battery",
-        "tray",
-        "custom/quick-settings"
+				"tray",
+				"group/battery_power",
     ],
     "custom/quick-settings": {
         "format": " ",
@@ -106,7 +105,8 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "format": "{:%H:%M %m/%d/%Y}",
+        //"format": "{:%H:%M %m/%d/%Y}",
+				"format": "{:%a %d %b %I:%M %p}",
         "tooltip": false,
         //"on-click": "ags -t calendar"
     },
@@ -205,6 +205,13 @@
         },
         "on-click": "pavucontrol"
     },
+		"group/battery_power": {
+			"orientation": "horizontal",
+			 "modules": [
+					"battery",
+					"power-profiles-daemon",
+				]
+		},
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
