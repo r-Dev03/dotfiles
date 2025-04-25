@@ -40,7 +40,7 @@ button:hover {
 }
 
 #workspaces button {
-  border-radius: 5px;
+  border-radius: 7px;
   border: solid 1px transparent;
   transition: ease 0.5s;
   padding: 0 5px;
