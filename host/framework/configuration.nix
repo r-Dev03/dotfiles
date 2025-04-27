@@ -177,7 +177,6 @@ in {
 
   programs = {
     nano.enable = false; # garbage
-    firefox.enable = true;
     zsh.enable = true;
     git.enable = true;
 

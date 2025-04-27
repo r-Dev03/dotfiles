@@ -119,6 +119,10 @@
       nix-direnv.enable = true;
     };
 
+    firefox = {
+      enable = true;
+    };
+
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -165,6 +169,7 @@
 
             bindkey '^ ' autosuggest-accept
             bindkey -r '\ec'
+						neofetch
       '';
 
       history = {
