@@ -145,6 +145,10 @@ in {
       HandlePowerKeyLongPress=poweroff
     '';
 
+    fwupd.enable = true;
+    blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
+
     # Enable CUPS to print documents.
     printing.enable = true;
 
@@ -168,26 +172,25 @@ in {
         ];
 
         extraDefCfg = "process-unmapped-keys yes";
-        config= ''
+        config = ''
           (defsrc
-            caps lalt lmet
+            caps lalt lmeta ralt
           )
 
           (defalias
-            caps (tap-hold 200 200 esc lctl)
-            lalt lmet  
-            lmet lalt
+            ;; Caps Lock: Esc on tap, Ctrl on hold
+            caps-ctrl (tap-hold 150 150 esc lctrl)
+            ;; Swap Left Alt and Left Super (Meta)
+            lalt-swap lmeta
+            lmeta-swap lalt
           )
 
           (deflayer base
-            caps lalt lmet
+            @caps-ctrl @lalt-swap @lmeta-swap ralt
           )
         '';
       };
     };
-    fwupd.enable = true;
-    blueman.enable = true;
-    gnome.gnome-keyring.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

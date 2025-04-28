@@ -169,6 +169,9 @@
 
             bindkey '^ ' autosuggest-accept
             bindkey -r '\ec'
+						bindkey -rM emacs '\ec'
+						bindkey -rM viins '\ec'
+						bindkey -rM vicmd '\ec'
 						neofetch
       '';
 
