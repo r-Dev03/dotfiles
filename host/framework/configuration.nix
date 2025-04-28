@@ -168,22 +168,23 @@ in {
         ];
 
         extraDefCfg = "process-unmapped-keys yes";
-        config = ''
-					(defsrc
-					 caps
-					)
+        config= ''
+          (defsrc
+            caps lalt lmet
+          )
 
-					(defalias
-					 caps (tap-hold 200 200 esc lctl)
-					)
+          (defalias
+            caps (tap-hold 200 200 esc lctl)
+            lalt lmet  
+            lmet lalt
+          )
 
-					(deflayer base
-					 caps
-					)
-					'';
+          (deflayer base
+            caps lalt lmet
+          )
+        '';
       };
     };
-
     fwupd.enable = true;
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
