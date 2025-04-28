@@ -21,7 +21,6 @@ in {
 
   stylix = {
     enable = true;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
     base16Scheme = {
       system = "base16";
       name = "Aki";
@@ -157,6 +156,32 @@ in {
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+    };
+
+    kanata = {
+      enable = true;
+      keyboards.internalKeyboard = {
+        devices = [
+          "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.4:1.0-event-kbd"
+          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.4:1.2-event-kbd"
+        ];
+
+        extraDefCfg = "process-unmapped-keys yes";
+        config = ''
+					(defsrc
+					 caps
+					)
+
+					(defalias
+					 caps (tap-hold 200 200 esc lctl)
+					)
+
+					(deflayer base
+					 caps
+					)
+					'';
+      };
     };
 
     fwupd.enable = true;
