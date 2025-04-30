@@ -21,7 +21,7 @@
 				"group/battery_power",
     ],
     "custom/quick-settings": {
-        "format": " ",
+        "format": "",
         //"on-click": "ags -t sidebar",
         "tooltip": false
     },
