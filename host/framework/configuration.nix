@@ -179,7 +179,7 @@ in {
 
           (defalias
             ;; Caps Lock: Esc on tap, Ctrl on hold
-            caps-ctrl (tap-hold 150 150 esc lctrl)
+            caps-ctrl (tap-hold-press 100 100 esc lctrl)
             ;; Swap Left Alt and Left Super (Meta)
             lalt-swap lmeta
             lmeta-swap lalt
