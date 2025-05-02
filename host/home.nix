@@ -63,6 +63,7 @@
     uv
     unzip
     wezterm
+		yq-go
 
     # language servers & formatters
 
@@ -172,7 +173,6 @@
 						bindkey -rM emacs '\ec'
 						bindkey -rM viins '\ec'
 						bindkey -rM vicmd '\ec'
-						neofetch
       '';
 
       history = {
