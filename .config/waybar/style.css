@@ -41,7 +41,7 @@ button:hover {
 
 #workspaces button {
   border-radius: 7px;
-  border: solid 1px transparent;
+  border: solid 1.5px transparent;
   transition: ease 0.5s;
   padding: 0 5px;
   margin: 2px 3px;
@@ -73,10 +73,12 @@ button:hover {
 #language,
 #clock,
 #custom-quick-settings,
+#battery,
+#power-profiles-daemon,
 #window {
   border-radius: 10px;
   border: solid 1px #454756;
-  padding: 0 20px;
+  padding: 0 15px;
   background-color: rgba(16, 19, 23, 0.9);
 }
 
@@ -111,7 +113,7 @@ button:hover {
 }
 
 #battery {
-  border-radius: 10px 0 0 10px;
+  /*border-radius: 10px 0 0 10px;*/
   /*border-radius: 0 10px 10px 0;*/
   border: solid 1px #454756;
   border-right: none;
@@ -120,7 +122,7 @@ button:hover {
 }
 
 #power-profiles-daemon {
-  border-radius: 0 10px 10px 0;
+  /*border-radius: 0 10px 10px 0;*/
   /*border-radius: 10px 0 0 10px;*/
   border: solid 1px #454756;
   border-left: 1px solid #454756;
