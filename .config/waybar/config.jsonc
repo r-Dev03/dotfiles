@@ -106,7 +106,7 @@
     "clock": {
         // "timezone": "America/New_York",
         //"format": "{:%H:%M %m/%d/%Y}",
-				"format": "{:%a %d %b %I:%M %p}",
+				"format": "{:%a %b %d %I:%M %p}",
         "tooltip": false,
         //"on-click": "ags -t calendar"
     },
@@ -124,21 +124,14 @@
         // "format-critical": "{temperatureC}°C {icon}",
         "format": " {temperatureC}°C"
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
+		"backlight": {
+	 		 "scroll-step": 5,
+	 		 "format": "{percent}% {icon}",
+	 		 "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"],
+	 		 "tooltip": true,
+	 		 "tooltip-format": " Brightness: \n {percent}% {icon} "
+		 },
+
     "battery": {
         "states": {
             // "good": 95,
