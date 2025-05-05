@@ -167,13 +167,31 @@
       initExtra = ''
         if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
         	exec Hyprland
-        		fi
+        fi
 
-            bindkey '^ ' autosuggest-accept
-            bindkey -r '\ec'
-						bindkey -rM emacs '\ec'
-						bindkey -rM viins '\ec'
-						bindkey -rM vicmd '\ec'
+				bindkey '^ ' autosuggest-accept
+				bindkey -r '\ec'
+				bindkey -rM emacs '\ec'
+				bindkey -rM viins '\ec'
+				bindkey -rM vicmd '\ec'
+
+
+
+				fs() {
+					session=$(find ~/code ~/dotfiles -mindepth 1 -maxdepth 1 -type d \( -name '.git' -prune \) -o -type d -print | fzf)
+						session_name=$(basename "$session" | tr . _)
+
+						if ! tmux has-session -t "$session_name" 2> /dev/null; then
+							tmux new-session -d -s "$session_name" -c "$session"
+								fi
+
+								if [[ -z $TMUX ]]; then
+									tmux attach-session -t $session_name
+								else
+									tmux switch-client -t $session_name
+										fi
+				}
+
       '';
 
       history = {
