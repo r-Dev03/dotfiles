@@ -19,7 +19,8 @@
     ],
 
     "modules-right": [
-				"tray",
+				"network",
+				"bluetooth",
 				"power-profiles-daemon",
 				"battery",
     ],
@@ -186,15 +187,42 @@
         }
     },
 	
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
+    //"network": {
+    //    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    //    "format-wifi": "{essid} ({signalStrength}%) ",
+    //    "format-ethernet": "{ipaddr}/{cidr} ",
+    //    "tooltip-format": "{ifname} via {gwaddr} ",
+    //    "format-linked": "{ifname} (No IP) ",
+    //    "format-disconnected": "Disconnected ⚠",
+    //    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    //},
+
+
+	"network": {
+  // Remove ESSID and signal strength, show only icon
+  "format-wifi": "{icon}",
+  "format-ethernet": "{icon}",
+  "format-disconnected": "{icon}",
+  "tooltip-format": "Wi-Fi",
+  "on-click": "wezterm -e nmtui", // or your terminal of choice
+  "format-icons": [
+    "󰤯", // low
+    "󰤟", // medium
+    "󰤕", // high
+    "󰤨"  // connected
+  ]
+},
+
+	"bluetooth": {
+		"format": "",            // always show the same icon
+		"format-on": "",         // show when enabled
+		"format-connected": "",  // show when connected
+		"format-off": "",        // show when off (no line through)
+		"format-disabled": "",   // show when disabled (no line through)
+		"tooltip-format": "Bluetooth: {status}",
+		"on-click": "alacritty -e bluetoothctl" // or your terminal of choice
+	},
+
 
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

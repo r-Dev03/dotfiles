@@ -1,5 +1,5 @@
 * {
-  font-family: "polycat", "CommitMono Nerd Font";
+  font-family: "CommitMono Nerd Font";
   font-size: 13px;
 }
 
@@ -9,6 +9,7 @@ window#waybar {
   border: 1px solid #454756;
   color: #c5c9c5;
   margin: 5px 10px;
+  min-height: 35px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -17,20 +18,21 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
+/* All modules: even padding and no margin for perfect alignment */
 #mpd,
 #custom-runcat,
 #cpu,
 #memory,
-/*#tray,*/
 #temperature,
 #language,
 #clock,
 #custom-quick-settings,
 #battery,
-/*#power-profiles-daemon,*/
+#power-profiles-daemon,
 #window,
 #backlight,
 #network,
+#bluetooth,
 #pulseaudio,
 #wireplumber,
 #custom-media,
@@ -43,21 +45,22 @@ window#waybar.hidden {
   border: none;
   border-radius: 0;
   padding: 0 10px;
+  margin: 0;
   color: inherit;
   box-shadow: none;
 }
 
-#power-profiles-daemon {
-  padding-left: 0;
-  padding-right: 4px;
-  min-width: 24px;
+/* Special tweaks for right-aligned modules if needed */
+#power-profiles-daemon,
+#network,
+#bluetooth,
+#battery {
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 0;
 }
 
-#tray {
-  /*padding-left: 0;*/
-  /*padding-right: 10px;*/
-}
-
+/* Workspaces: merge with bar, no border, no separate background */
 #workspaces {
   background: none;
   border-radius: 0;
@@ -111,12 +114,6 @@ window#waybar.hidden {
   animation-timing-function: steps(12);
   animation-iteration-count: infinite;
   animation-direction: alternate;
-}
-
-#tray > .passive { -gtk-icon-effect: dim; }
-#tray > .needs-attention {
-  -gtk-icon-effect: highlight;
-  background-color: #ca6d73;
 }
 
 #idle_inhibitor.activated {
