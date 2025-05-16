@@ -73,8 +73,8 @@ button:hover {
 
 #battery {
   margin-left: 0;
+	padding: 0 6px;
 }
-
 
 #power-profiles-daemon {
 	margin-left: 0;
