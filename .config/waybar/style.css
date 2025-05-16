@@ -15,9 +15,8 @@
 
 window#waybar {
   background-color: rgba(16, 19, 23, 0.9);
-  border-radius: 0 0 16px 16px; /* top-left, top-right, bottom-right, bottom-left */
-  border: solid 1px #454756;
-  border-top: none; /* Optional: remove the top border for a flush look */
+  border-radius: 8px; /* top-left, top-right, bottom-right, bottom-left */
+  /*border: solid 1px #454756;*/
   color: #c5c9c5;
   transition-property: background-color;
   transition-duration: 0.5s;
