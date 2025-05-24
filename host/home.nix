@@ -225,10 +225,6 @@
       enableZshIntegration = true;
     };
 
-    # zathura = {
-    #   enable = true;
-    # };
-
     home-manager.enable = true;
   };
 }
