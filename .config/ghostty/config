@@ -50,8 +50,9 @@
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
 # font-family = CaskaydiaCove Nerd Font
-# font-family = BlexMono Nerd Font
-font-family = ligalex mono for powerline 
+font-family = BlexMono Nerd Font
+# font-family = ligalex mono for powerline 
+# font-family = JetBrains Mono
 
 font-family-bold = 
 font-family-italic = 
