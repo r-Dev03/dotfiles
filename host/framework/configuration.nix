@@ -47,25 +47,25 @@ in {
     };
 
     polarity = "dark";
-    fonts.monospace = {
-      name = "Commit Mono";
-      package = pkgs.commit-mono;
-    };
-
-    fonts.sansSerif = {
-      name = "JetBrains Mono";
-      package = pkgs.jetbrains-mono;
-    };
-
-    fonts.serif = {
-      name = "Liberation Serif";
-      package = pkgs.liberation_ttf;
-    };
-
-    fonts.emoji = {
-      name = "Noto Color Emoji";
-      package = pkgs.noto-fonts-emoji;
-    };
+    # fonts.monospace = {
+    #   name = "Commit Mono";
+    #   package = pkgs.commit-mono;
+    # };
+    #
+    # fonts.sansSerif = {
+    #   name = "JetBrains Mono";
+    #   package = pkgs.jetbrains-mono;
+    # };
+    #
+    # fonts.serif = {
+    #   name = "Liberation Serif";
+    #   package = pkgs.liberation_ttf;
+    # };
+    #
+    # fonts.emoji = {
+    #   name = "Noto Color Emoji";
+    #   package = pkgs.noto-fonts-emoji;
+    # };
     targets.gtk.enable = true;
   };
 
@@ -250,7 +250,6 @@ in {
     enableDefaultPackages = true; # Include default system fonts for fallback
     packages = with pkgs; [
       font-awesome
-      jetbrains-mono
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       nerd-fonts.blex-mono
@@ -260,8 +259,8 @@ in {
     fontconfig = {
       enable = true; # Enable Fontconfig for system-wide font settings
       defaultFonts = {
-        monospace = ["Commit Mono"]; # Set default monospace font
-        sansSerif = ["JetBrains Mono"]; # Example sans-serif fallback
+        monospace = ["JetBrains Mono Nerd Font"]; # Set default monospace font
+        sansSerif = ["JetBrains Mono Nerd Font"]; # Example sans-serif fallback
         serif = ["Liberation Serif"]; # Example serif fallback
       };
     };
