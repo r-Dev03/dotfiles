@@ -3,6 +3,7 @@
   stdenv,
   fetchurl,
   unzip,
+	pkgs,	
 }:
 stdenv.mkDerivation {
   pname = "rec-mono";
@@ -10,7 +11,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://github.com/arrowtype/recursive/releases/download/v1.085/ArrowType-Recursive-1.085.zip";
-    sha256 = "5f4be025122d72d4710267e959128e8986ebe435";
+		sha256 = "sha256-y8vfeg4YHShKkjXgntXzhz5Se8XdHZd99xzcH/k32gI";
   };
 
   nativeBuildInputs = [unzip];

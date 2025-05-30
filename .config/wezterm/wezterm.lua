@@ -8,7 +8,7 @@ config.enable_tab_bar = false
 
 config.window_decorations = "NONE"
 
-config.font = wezterm.font('JetBrains Mono Nerd Font');
+config.font = wezterm.font('Rec Mono Casual');
 
 config.font_size = 12.0
 

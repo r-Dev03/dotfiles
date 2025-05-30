@@ -7,15 +7,6 @@
 }: let
   system = "x86_64-linux";
 in {
-  nixpkgs = {
-    overlays = [
-      (import ../../pkgs)
-    ];
-
-    config = {
-      allowUnfree = true;
-    };
-  };
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -55,25 +46,21 @@ in {
     };
 
     polarity = "dark";
-    # fonts.monospace = {
-    #   name = "Commit Mono";
-    #   package = pkgs.commit-mono;
-    # };
-    #
-    # fonts.sansSerif = {
-    #   name = "JetBrains Mono";
-    #   package = pkgs.jetbrains-mono;
-    # };
-    #
-    # fonts.serif = {
-    #   name = "Liberation Serif";
-    #   package = pkgs.liberation_ttf;
-    # };
-    #
-    # fonts.emoji = {
-    #   name = "Noto Color Emoji";
-    #   package = pkgs.noto-fonts-emoji;
-    # };
+    fonts.monospace = {
+      name = "Rec Mono Casual";
+      package = pkgs.rec-mono;
+    };
+
+    fonts.sansSerif = {
+      name = "Rec Mono Casual";
+      package = pkgs.rec-mono;
+    };
+
+    fonts.serif = {
+      name = "Rec Mono Casual";
+      package = pkgs.rec-mono;
+    };
+
     targets.gtk.enable = true;
   };
 
@@ -255,8 +242,9 @@ in {
   };
 
   fonts = {
-    enableDefaultPackages = true; # Include default system fonts for fallback
+    enableDefaultPackages = true; 
     packages = with pkgs; [
+			rec-mono
       font-awesome
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
@@ -265,11 +253,9 @@ in {
       nerd-fonts.commit-mono
     ];
     fontconfig = {
-      enable = true; # Enable Fontconfig for system-wide font settings
+      enable = true; 
       defaultFonts = {
-        monospace = ["JetBrains Mono Nerd Font"]; # Set default monospace font
-        sansSerif = ["JetBrains Mono Nerd Font"]; # Example sans-serif fallback
-        serif = ["Liberation Serif"]; # Example serif fallback
+        monospace = ["Rec Mono Casual"]; 
       };
     };
   };
