@@ -7,7 +7,15 @@
 }: let
   system = "x86_64-linux";
 in {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    overlays = [
+      (import ../../pkgs)
+    ];
+
+    config = {
+      allowUnfree = true;
+    };
+  };
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -24,7 +32,7 @@ in {
     base16Scheme = {
       system = "base16";
       name = "Aki";
-      author = "Your Name";
+      author = "ron";
       variant = "dark";
       palette = {
         base00 = "#101317"; # background (darkest)
