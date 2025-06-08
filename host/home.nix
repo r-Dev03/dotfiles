@@ -147,6 +147,11 @@
       enable = true;
       userName = "Ribbal Hussain";
       userEmail = "ribbalh0@gmail.com";
+
+			extraConfig = {
+			 core.askPass = "";
+			};
+
     };
 
     neovim = {
