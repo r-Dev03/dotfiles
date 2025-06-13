@@ -162,8 +162,8 @@ in {
       keyboards.internalKeyboard = {
         devices = [
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.4:1.0-event-kbd"
-          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.4:1.2-event-kbd"
+          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.3:1.0-event-kbd"
+          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.3:1.2-event-kbd"
         ];
 
         extraDefCfg = "process-unmapped-keys yes";
