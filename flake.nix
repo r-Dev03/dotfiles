@@ -7,6 +7,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware"; # Optional for hardware-specific configs
     ags.url = "github:aylur/ags";
     stylix.url = "github:danth/stylix";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -34,7 +35,10 @@
       system:
         import inputs.nixpkgs {
           inherit system;
-          overlays = [(import ./pkgs)];
+          overlays = [
+						(import ./pkgs)
+						 inputs.neovim-nightly-overlay.overlays.default
+					];
           config.allowUnfree = true;
         }
     );
@@ -44,7 +48,7 @@
         system = "x86_64-linux";
         pkgs = legacyPackages."${system}";
         specialArgs = {
-          inherit ags;
+          inherit ags inputs;
         };
         modules = [
           ./host/framework/configuration.nix
