@@ -90,13 +90,13 @@
     hypridle
     hyprlock
     hyprpaper
+		swaynotificationcenter
 
     # theme stuff
     adwaita-icon-theme
 
     # Desktop utilities
     libnotify
-    swaynotificationcenter
     waybar
     wofi
     wl-clipboard

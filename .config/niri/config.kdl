@@ -314,9 +314,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal: wezterm" { spawn "wezterm"; }
-    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+Return  { spawn "wezterm"; }
+	 	Mod+Space   { spawn "wofi -H 400 -W 800 --show drun --insensitive -I"; }
+    Super+Alt+L { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
