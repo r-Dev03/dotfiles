@@ -172,15 +172,11 @@
       '';
 
       initExtra = ''
-				#     if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-				#     	exec Hyprland
-				#     fi
-				#
-				# bindkey '^ ' autosuggest-accept
-				# bindkey -r '\ec'
-				# bindkey -rM emacs '\ec'
-				# bindkey -rM viins '\ec'
-				# bindkey -rM vicmd '\ec'
+				bindkey '^ ' autosuggest-accept
+				bindkey -r '\ec'
+				bindkey -rM emacs '\ec'
+				bindkey -rM viins '\ec'
+				bindkey -rM vicmd '\ec'
 
 
 
