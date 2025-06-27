@@ -7,3 +7,4 @@
 \.stylua\.toml
 flake\.(nix|lock)
 host
+pkgs

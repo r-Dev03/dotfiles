@@ -205,9 +205,13 @@ in {
     git.enable = true;
 
     hyprland = {
-      enable = true;
+      enable = false;
       # xwayland.enable = true;
     };
+
+		niri = {
+			enable = true;
+		};
   };
 
   environment = {
