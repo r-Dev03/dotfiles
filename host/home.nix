@@ -85,21 +85,18 @@
     nodePackages.eslint
     gopls
 
-    # Hyprland utilities
-    hyprshot
-    hypridle
-    hyprlock
-    hyprpaper
-		swaynotificationcenter
 
     # theme stuff
     adwaita-icon-theme
 
-    # Desktop utilities
+    # Niri / Desktop utilities
+		xwayland-satellite
     libnotify
     waybar
-    wofi
-    wl-clipboard
+		fuzzel
+		swaybg
+		swayidle
+		swaylock
 
     # Build tools
     cmake

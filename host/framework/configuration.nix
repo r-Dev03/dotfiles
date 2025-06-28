@@ -204,14 +204,6 @@ in {
     zsh.enable = true;
     git.enable = true;
 
-    hyprland = {
-      enable = false;
-      # xwayland.enable = true;
-    };
-
-		niri = {
-			enable = true;
-		};
   };
 
   environment = {
@@ -219,6 +211,7 @@ in {
       (with ags; [packages.${system}.ags])
       ++ (with pkgs; [
         coreutils
+				niri
         vim
       ]);
 
@@ -226,9 +219,9 @@ in {
       EDITOR = "nvim";
       VISUAL = "nvim";
       MANPAGER = "nvim +Man!";
-      NIXOS_OZONE_WL = "1";
-      GDK_BACKEND = "wayland";
-      XDG_SESSION_TYPE = "wayland";
+      # NIXOS_OZONE_WL = "1";
+      # GDK_BACKEND = "wayland";
+      # XDG_SESSION_TYPE = "wayland";
       # MOZ_ENABLE_WAYLAND = 1;
     };
   };

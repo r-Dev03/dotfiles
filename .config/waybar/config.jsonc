@@ -11,7 +11,7 @@
     "margin-right": 5,
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces"
+        "niri/workspaces"
     ],
 
     "modules-center": [
@@ -24,11 +24,11 @@
 				"battery",
     ],
 
-    "hyprland/language": {
+    "niri/language": {
         "padding": 10,
     },
 	
-    "hyprland/workspaces": {
+    "niri/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
@@ -36,8 +36,6 @@
         "persistent-workspaces": {
             "1": [],
             "2": [],
-            "3": [],
-						"4": [],
         }
     },
 

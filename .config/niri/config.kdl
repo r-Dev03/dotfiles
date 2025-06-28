@@ -1,8 +1,3 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
-
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
@@ -20,8 +15,6 @@ input {
         dwt
 				drag true
 				scroll-method "two-finger"
-				// accel-speed 0.0
-				// accel-profile "adaptive"
     }
 
     mouse {
@@ -43,17 +36,13 @@ cursor {
 	hide-when-typing
 }
 
-output "eDP-1" {
+hotkey-overlay {
+ skip-at-startup
+}
 
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+output "eDP-1" {
     mode "2880x1920@120"
 
-    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.6
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
@@ -72,12 +61,24 @@ output "eDP-1" {
     position x=1920 y=0
 }
 
+
+overview {
+    zoom 0.5
+    backdrop-color "#101317"
+    workspace-shadow {
+        softness 40
+        spread 10
+        offset x=0 y=10
+        color "#00000050"
+    }
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 4
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -158,7 +159,7 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        off
+        // off
 
         width 4
 				active-color "#454756"
@@ -227,8 +228,21 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
+spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
+spawn-at-startup "nm-applet"
+spawn-at-startup "blueman-applet"
+spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
+
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    DISPLAY ":0"
+    XDG_SESSION_TYPE "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    MOZ_ENABLE_WAYLAND "1"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -259,6 +273,11 @@ animations {
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+window-rule {
+    geometry-corner-radius 5
+    clip-to-geometry true
+}
+
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -315,7 +334,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return  { spawn "wezterm"; }
-	 	Mod+Space   { spawn "wofi -H 400 -W 800 --show drun --insensitive -I"; }
+	 	Mod+Space   { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
