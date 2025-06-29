@@ -102,7 +102,12 @@ in {
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-    pam.services.sddm.enableGnomeKeyring = true;
+    pam = {
+			services = {
+				sddm.enableGnomeKeyring = true;
+				swaylock = {};
+			};
+		};
   };
 
   powerManagement = {
