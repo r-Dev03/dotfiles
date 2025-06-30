@@ -29,14 +29,6 @@
     },
 	
     "niri/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-        }
     },
 
     "keyboard-state": {
@@ -48,10 +40,10 @@
             "unlocked": ""
         }
     },
-    "sway/mode": {
+    "niri/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "sway/scratchpad": {
+    "niri/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": [
