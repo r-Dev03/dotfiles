@@ -97,6 +97,7 @@
 		swaybg
 		swayidle
 		swaylock
+		mako
 
     # Build tools
     cmake
