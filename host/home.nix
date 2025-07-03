@@ -13,10 +13,6 @@
 
   gtk = {
     enable = true;
-    # theme = {
-    #   name = "Catppuccin-Macchiato-Blue-Dark";
-    #   package = pkgs.catppuccin-gtk;
-    # };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;

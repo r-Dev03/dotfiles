@@ -119,7 +119,7 @@ in {
     udisks2.enable = true;
     displayManager.sddm = {
       enable = false;
-      wayland.enable = true;
+      wayland.enable = false;
     };
 
     # Enable the X11 windowing system.
