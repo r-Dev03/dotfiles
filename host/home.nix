@@ -39,7 +39,6 @@
     };
   };
 
-  # Combined packages from shell.nix and vim.nix
   home.packages = with pkgs; [
     # Shell tools
     # aerc
@@ -65,11 +64,10 @@
 		yq-go
 
     # language servers & formatters
-
-    nixd # nix language server
-    nix-direnv # nix integration for direnv
-    alejandra # formatter
-    statix # linter
+    nixd 
+    nix-direnv 
+    alejandra 
+    statix 
 
     lua-language-server
     stylua
