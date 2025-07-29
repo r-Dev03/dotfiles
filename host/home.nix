@@ -41,7 +41,7 @@
 
   home.packages = with pkgs; [
     # Shell tools
-    # aerc
+    aerc
     # age
     btop
     bat
