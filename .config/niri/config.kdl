@@ -97,7 +97,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
-spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock -f" "timeout" "600" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
+spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
 
 
 environment {
