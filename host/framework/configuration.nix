@@ -200,7 +200,7 @@ in {
       isNormalUser = true;
       useDefaultShell = true;
       description = "ron";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = ["networkmanager" "wheel" "docker"];
     };
   };
 
@@ -209,7 +209,14 @@ in {
     zsh.enable = true;
     git.enable = true;
 
-  };
+		};
+
+
+	virtualisation = {
+		docker = {
+			enable = true;
+		};
+	};
 
   environment = {
     systemPackages =

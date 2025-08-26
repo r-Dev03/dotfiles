@@ -52,6 +52,7 @@
     gnumake
     ghostty
     kitty
+		mycli
     neofetch
     ripgrep
     stow
@@ -187,6 +188,20 @@
 										fi
 				}
 
+
+fn() {
+  # If called with -r or --rescan, refresh Wi‑Fi list first
+  if [[ "$1" == "-r" || "$1" == "--rescan" ]]; then
+    nmcli device wifi rescan >/dev/null
+  fi
+
+  # Show the same table style as before and let fzf select
+  nmcli device wifi list \
+    | tail -n +2 \
+    | fzf \
+    | awk '{print $1}' \
+    | xargs -r nmcli device wifi connect
+}
       '';
 
       history = {
