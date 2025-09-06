@@ -174,7 +174,7 @@
 
 
 				fs() {
-					session=$(find ~/code ~/dotfiles -mindepth 1 -maxdepth 1 -type d \( -name '.git' -prune \) -o -type d -print | fzf)
+					session=$(find ~/code ~/dotfiles -mindepth 1 -maxdepth 1 -type d \( -name '.git' -prune \) -o -type d -print | sed "s|^$HOME/||" | fzf)
 						session_name=$(basename "$session" | tr . _)
 
 						if ! tmux has-session -t "$session_name" 2> /dev/null; then

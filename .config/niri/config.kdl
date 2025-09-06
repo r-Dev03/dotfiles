@@ -37,6 +37,7 @@ output "DP-3" {
     position x=0 y=0
     scale 1
 		variable-refresh-rate
+		focus-at-startup
 }
 
 // Laptop screen -> Framework 13 2.8k display
@@ -45,6 +46,7 @@ output "eDP-1" {
     position x=1920 y=0
     scale 1.6
 		variable-refresh-rate
+		focus-at-startup
 }
 
 
