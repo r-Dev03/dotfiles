@@ -22,7 +22,7 @@
     ags,
     home-manager,
     ...
-  }@inputs: let 
+  } @ inputs: let
     forAllSystems = nixpkgs.lib.genAttrs [
       "aarch64-linux"
       "i686-linux"
@@ -36,9 +36,9 @@
         import inputs.nixpkgs {
           inherit system;
           overlays = [
-						(import ./pkgs)
-						 inputs.neovim-nightly-overlay.overlays.default
-					];
+            (import ./pkgs)
+            inputs.neovim-nightly-overlay.overlays.default
+          ];
           config.allowUnfree = true;
         }
     );

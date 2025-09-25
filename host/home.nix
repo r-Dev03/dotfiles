@@ -2,6 +2,7 @@
 
   config,
   pkgs,
+
   ...
 }: {
   # Basic user details
@@ -65,10 +66,8 @@
 		yq-go
 
     # language servers & formatters
-    nixd 
-    nix-direnv 
-    alejandra 
-    statix 
+		nil
+		alejandra
 
     lua-language-server
     stylua
@@ -78,7 +77,6 @@
     nodePackages.typescript-language-server
     nodePackages.prettier
     nodePackages.eslint
-    gopls
 
 
     # theme stuff
