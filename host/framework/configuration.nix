@@ -140,10 +140,10 @@ in {
     };
 
     power-profiles-daemon.enable = true;
-    logind.extraConfig = ''
-      HandlePowerKey=suspend
-      HandlePowerKeyLongPress=poweroff
-    '';
+		# logind.settings.Login= ''
+		#     HandlePowerKey=suspend
+		#     HandlePowerKeyLongPress=poweroff
+		#   '';
 
     fwupd.enable = true;
     blueman.enable = true;

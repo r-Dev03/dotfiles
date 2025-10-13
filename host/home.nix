@@ -10,8 +10,6 @@
   home.homeDirectory = "/home/ron";
   home.stateVersion = "24.05";
 
-	# fonts.fontconfig.enable = true;
-
   gtk = {
     enable = true;
     iconTheme = {
