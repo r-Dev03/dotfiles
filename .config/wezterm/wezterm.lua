@@ -10,7 +10,7 @@ config.window_decorations = "NONE"
 
 config.font = wezterm.font('Rec Mono Casual');
 
-config.font_size = 12.0
+config.font_size = 14.0
 
 
 config.color_schemes = {
