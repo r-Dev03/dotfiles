@@ -89,6 +89,7 @@
 		swayidle
 		swaylock
 		mako
+		jetbrains.idea-ultimate
 
     # Build tools
     cmake

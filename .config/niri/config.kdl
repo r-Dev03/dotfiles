@@ -155,7 +155,6 @@ window-rule {
 
 
 window-rule {
-    match app-id="org.pulseaudio.pavucontrol"
     match app-id="blueman-manager"
     open-floating true
 }
