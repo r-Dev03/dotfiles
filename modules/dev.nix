@@ -1,24 +1,43 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    zoxide = {
+      enable = true;
+    };
+
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+    };
+
+    starship = {
+      enable = true;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     # Shell tools
     aerc
     btop
     bat
-		direnv
-		nix-direnv
     eza
-    fd
 		fzf
+    fd
     gnupg
     gnumake
     ghostty
     kitty
     mycli
     neofetch
-		neovim
+    neovim
     ripgrep
     stow
-		starship
     tmux
     tree
     tealdeer
@@ -26,10 +45,6 @@
     unzip
     wezterm
     yq-go
-		zoxide
-    zsh
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 
     # Language servers & formatters
     nil
@@ -50,4 +65,3 @@
     cmake
   ];
 }
-

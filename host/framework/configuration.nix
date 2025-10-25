@@ -156,8 +156,6 @@ in {
 
   programs = {
     nano.enable = false; # garbage
-    zsh.enable = true;
-    git.enable = true;
   };
 
   virtualisation = {
