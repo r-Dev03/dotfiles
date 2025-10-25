@@ -8,3 +8,4 @@
 flake\.(nix|lock)
 host
 pkgs
+modules

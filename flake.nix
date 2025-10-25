@@ -2,12 +2,22 @@
   description = "NixOS Config";
 
   inputs = {
-    # Nixpkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # Latest packages
-    nixos-hardware.url = "github:NixOS/nixos-hardware"; # Optional for hardware-specific configs
-    ags.url = "github:aylur/ags";
-    stylix.url = "github:danth/stylix";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
+
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,7 +29,6 @@
     self,
     nixpkgs,
     nixos-hardware,
-    ags,
     home-manager,
     ...
   } @ inputs: let
@@ -47,9 +56,7 @@
       framework = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         pkgs = legacyPackages."${system}";
-        specialArgs = {
-          inherit ags inputs;
-        };
+
         modules = [
           ./host/framework/configuration.nix
           ./host/framework/hardware-configuration.nix
@@ -61,7 +68,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.ron = ./host/home.nix;
+            home-manager.users.ron = ./host/base.nix;
           }
         ];
       };

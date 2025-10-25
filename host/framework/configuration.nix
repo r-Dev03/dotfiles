@@ -2,13 +2,14 @@
   config,
   pkgs,
   inputs,
-  ags,
   ...
 }: let
   system = "x86_64-linux";
 in {
   imports = [
-    # Include the results of the hardware scan.
+    ../../modules/dev.nix
+    ../../modules/system.nix
+    ../../modules/stylix.nix
     ./hardware-configuration.nix
   ];
 
@@ -16,52 +17,6 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-  };
-
-  stylix = {
-    enable = true;
-    base16Scheme = {
-      system = "base16";
-      name = "Aki";
-      author = "ron";
-      variant = "dark";
-      palette = {
-        base00 = "#101317"; # background (darkest)
-        base01 = "#22232E"; # selection_foreground/tab_bar_background
-        base02 = "#2C2D39"; # color0 (black)
-        base03 = "#454756"; # color8 (bright black)
-        base04 = "#D1CEC9"; # color7 (white)
-        base05 = "#E4E1DD"; # foreground (lightest)
-        base06 = "#99A3C2"; # inactive_border_color
-        base07 = "#BDC3E6"; # lightened periwinkle (more distinct from base06)
-        base08 = "#CA6D73"; # color1 (red)
-        base09 = "#E6C193"; # color3 (yellow/orange)
-        base0A = "#B4C7A7"; # color2 (green)
-        base0B = "#9BC2B1"; # mark3_background (teal)
-        base0C = "#7EB3C9"; # color4 (blue)
-        base0D = "#7BC2DF"; # color12 (bright blue)
-        base0E = "#AD8DBD"; # color5 (magenta/purple)
-        base0F = "#8D6B94"; # darker purple (derived from AD8DBD)
-      };
-    };
-
-    polarity = "dark";
-    fonts.monospace = {
-      name = "Rec Mono Casual";
-      package = pkgs.rec-mono;
-    };
-
-    fonts.sansSerif = {
-      name = "Rec Mono Casual";
-      package = pkgs.rec-mono;
-    };
-
-    fonts.serif = {
-      name = "Rec Mono Casual";
-      package = pkgs.rec-mono;
-    };
-
-    targets.gtk.enable = true;
   };
 
   # Bootloader.
@@ -103,11 +58,11 @@ in {
     rtkit.enable = true;
     polkit.enable = true;
     pam = {
-			services = {
-				sddm.enableGnomeKeyring = true;
-				swaylock = {};
-			};
-		};
+      services = {
+        sddm.enableGnomeKeyring = true;
+        swaylock = {};
+      };
+    };
   };
 
   powerManagement = {
@@ -140,10 +95,6 @@ in {
     };
 
     power-profiles-daemon.enable = true;
-		# logind.settings.Login= ''
-		#     HandlePowerKey=suspend
-		#     HandlePowerKeyLongPress=poweroff
-		#   '';
 
     fwupd.enable = true;
     blueman.enable = true;
@@ -193,7 +144,6 @@ in {
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.zsh;
     users.ron = {
@@ -208,24 +158,20 @@ in {
     nano.enable = false; # garbage
     zsh.enable = true;
     git.enable = true;
+  };
 
-		};
-
-
-	virtualisation = {
-		docker = {
-			enable = true;
-		};
-	};
+  virtualisation = {
+    docker = {
+      enable = true;
+    };
+  };
 
   environment = {
-    systemPackages =
-      (with ags; [packages.${system}.ags])
-      ++ (with pkgs; [
-        coreutils
-				niri
-        vim
-      ]);
+    systemPackages = with pkgs; [
+      coreutils
+      niri
+      vim
+    ];
 
     variables = {
       EDITOR = "nvim";
@@ -247,25 +193,6 @@ in {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
-    };
-  };
-
-  fonts = {
-    enableDefaultPackages = true; 
-    packages = with pkgs; [
-			rec-mono
-      font-awesome
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.fira-code
-      nerd-fonts.blex-mono
-      nerd-fonts.symbols-only
-      nerd-fonts.commit-mono
-    ];
-    fontconfig = {
-      enable = true; 
-      defaultFonts = {
-        monospace = ["Rec Mono Casual"]; 
-      };
     };
   };
 
