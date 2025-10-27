@@ -28,8 +28,20 @@ fi
 
 # Fzf Keybindings and Settings
 export FZF_DEFAULT_COMMAND="fd --type f"
-export FZF_DEFAULT_OPTS="--height=50% --layout=reverse --info=inline --border --margin=1 --padding=1"
+# export FZF_DEFAULT_OPTS="--height=50% --layout=reverse --info=inline --border --margin=1 --padding=1"
 export FZF_CTRL_T_COMMAND="fd --type f --strip-cwd-prefix"
+export FZF_DEFAULT_OPTS="\
+  --height=50% \
+  --layout=reverse \
+  --info=inline \
+  --border \
+  --margin=1 \
+  --padding=1 \
+  --color=bg+:#1c1c24,bg:#101317,spinner:#ad8dbd,hl:#ad8dbd \
+  --color=fg:#D1CEC9,header:#9bb4bc,info:#797ea3,pointer:#8f9e9b \
+  --color=marker:#B4C7A7,fg+:#D1CEC9,prompt:#90a0b5,hl+:#ad8dbd \
+  --color=selected-bg:#1c1c24 \
+  --color=border:#505164,label:#797ea3"
 
 
 
