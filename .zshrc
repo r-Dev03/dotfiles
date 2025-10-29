@@ -2,6 +2,12 @@ if [ -f /etc/zshrc ]; then
   source /etc/zshrc
 fi
 
+
+if [[ -n $NVIM ]]; then
+  bindkey -e  # use emacs mode when running inside Neovim terminal
+fi
+
+
 # History
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
