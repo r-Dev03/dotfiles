@@ -5,6 +5,15 @@
       nix-direnv.enable = true;
     };
 
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc
+        zlib
+        openssl
+      ];
+    };
+
     zoxide = {
       enable = true;
     };
