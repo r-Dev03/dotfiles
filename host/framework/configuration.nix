@@ -165,12 +165,6 @@ in {
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      coreutils
-      niri
-      vim
-    ];
-
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
@@ -185,6 +179,7 @@ in {
   nix = {
     settings = {
       experimental-features = ["nix-command" "flakes"];
+      auto-optimise-store = true;
     };
 
     gc = {

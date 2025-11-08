@@ -4,6 +4,7 @@
     adwaita-icon-theme
 
     # Niri / Desktop utilities
+    niri
     xwayland-satellite
     libnotify
     waybar

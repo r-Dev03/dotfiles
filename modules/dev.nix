@@ -35,6 +35,7 @@
     aerc
     btop
     bat
+    coreutils-full
     eza
 		fzf
     fd
@@ -52,6 +53,7 @@
     tealdeer
     uv
     unzip
+    vim
     wezterm
     yq-go
 
