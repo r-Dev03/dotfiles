@@ -7,22 +7,22 @@
       author = "ron";
       variant = "dark";
       palette = {
-        base00 = "#101317"; # background (darkest)
-        base01 = "#22232E"; # selection_foreground/tab_bar_background
-        base02 = "#2C2D39"; # color0 (black)
-        base03 = "#454756"; # color8 (bright black)
-        base04 = "#D1CEC9"; # color7 (white)
-        base05 = "#E4E1DD"; # foreground (lightest)
-        base06 = "#99A3C2"; # inactive_border_color
-        base07 = "#BDC3E6"; # lightened periwinkle (more distinct from base06)
-        base08 = "#CA6D73"; # color1 (red)
-        base09 = "#E6C193"; # color3 (yellow/orange)
-        base0A = "#B4C7A7"; # color2 (green)
-        base0B = "#9BC2B1"; # mark3_background (teal)
-        base0C = "#7EB3C9"; # color4 (blue)
-        base0D = "#7BC2DF"; # color12 (bright blue)
-        base0E = "#AD8DBD"; # color5 (magenta/purple)
-        base0F = "#8D6B94"; # darker purple (derived from AD8DBD)
+        base00 = "#101317"; # background (darkest) - bg
+        base01 = "#1c1c24"; # selection_foreground/tab_bar_background - inactiveBg
+        base02 = "#252530"; # color0 (black) - line
+        base03 = "#454756"; # color8 (bright black) - visual
+        base04 = "#D1CEC9"; # color7 (white) - fg
+        base05 = "#c3c3d5"; # foreground (lightest) - property
+        base06 = "#99A3C2"; # inactive_border_color - hint
+        base07 = "#90a0b5"; # operator (distinct from base06)
+        base08 = "#b48484"; # color1 (red) - parameter/error
+        base09 = "#C3AD8B"; # color3 (yellow/orange) - warning/delta
+        base0A = "#B4C7A7"; # color2 (green) - plus
+        base0B = "#8f9e9b"; # mark3_background (teal) - string
+        base0C = "#9bb4bc"; # color4 (blue) - type
+        base0D = "#797ea3"; # color12 (bright blue) - keyword/builtin
+        base0E = "#ad8dbd"; # color5 (magenta/purple) - func/number
+        base0F = "#615D7D"; # darker purple - search
       };
     };
 
