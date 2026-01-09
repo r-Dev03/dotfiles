@@ -77,6 +77,13 @@ in {
       wayland.enable = false;
     };
 
+    logind = {
+      lidSwitch = "ignore";
+      lidSwitchDocked = "ignore";
+      lidSwitchExternalPower = "ignore";
+    };
+
+
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
     xserver = {
@@ -101,7 +108,19 @@ in {
     gnome.gnome-keyring.enable = true;
 
     # Enable CUPS to print documents.
-    printing.enable = true;
+    printing = {
+      enable = true;
+      browsed = {
+        enable = true;
+      };
+      drivers = [
+        pkgs.cups-filters # IPP Everywhere + generic drivers
+        pkgs.cups-bjnp # Canon BJNP network support
+        pkgs.hplip # HP printers (massive coverage)
+        pkgs.epson-escpr # Epson ESC/P-R (lots of EcoTank/WorkForce models)
+        pkgs.brlaser # Brother open-source laser drivers
+      ];
+    };
 
     # Enable sound with pipewire.
     pulseaudio.enable = false;
@@ -117,9 +136,11 @@ in {
       enable = true;
       keyboards.internalKeyboard = {
         devices = [
+          # internal laptop keyboard (same as before)
           "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.3.1:1.0-event-kbd"
-          "/dev/input/by-path/pci-0000:c3:00.4-usb-0:1.1.3.1:1.0-event-kbd"
+
+          # external IQUNIX keyboard over the USB‑C dock (stable across ports)
+          "/dev/input/by-id/usb-RDR_IQUNIX_MG65_Mechanical_Keyboard-event-kbd"
         ];
 
         extraDefCfg = "process-unmapped-keys yes";
@@ -169,6 +190,7 @@ in {
       EDITOR = "nvim";
       VISUAL = "nvim";
       MANPAGER = "nvim +Man!";
+      ROFI_WAYLAND = "1";
       # NIXOS_OZONE_WL = "1";
       # GDK_BACKEND = "wayland";
       # XDG_SESSION_TYPE = "wayland";

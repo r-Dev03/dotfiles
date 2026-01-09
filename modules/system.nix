@@ -9,6 +9,7 @@
     libnotify
     waybar
     fuzzel
+    rofi
     swaybg
     swayidle
     swaylock
@@ -25,11 +26,9 @@
 
     # GUI
     discord
-    nautilus
     google-chrome
     evince
   ];
-
 
   programs = {
     firefox.enable = true;
@@ -48,7 +47,11 @@
     ];
     fontconfig = {
       enable = true;
-      defaultFonts.monospace = ["Rec Mono Casual"];
+
+      defaultFonts = {
+        sansSerif = ["Recursive Sn Lnr St"]; 
+        monospace = ["Rec Mono Casual"];
+      };
     };
   };
 }

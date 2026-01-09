@@ -27,19 +27,21 @@
     };
 
     polarity = "dark";
-    fonts.monospace = {
-      name = "Rec Mono Casual";
-      package = pkgs.rec-mono;
-    };
+    fonts = {
+      monospace = {
+        name = "Rec Mono Casual";
+        package = pkgs.rec-mono;
+      };
 
-    fonts.sansSerif = {
-      name = "Rec Mono Casual";
-      package = pkgs.rec-mono;
-    };
+      sansSerif = {
+        name = "Recursive Sn Lnr St"; # proportional
+        package = pkgs.rec-mono;
+      };
 
-    fonts.serif = {
-      name = "Rec Mono Casual";
-      package = pkgs.rec-mono;
+      serif = {
+        name = "Recursive Sn Lnr St"; # proportional
+        package = pkgs.rec-mono;
+      };
     };
 
     targets.gtk.enable = true;

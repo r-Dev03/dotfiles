@@ -1,0 +1,8 @@
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+}
+
+@theme "~/.config/rofi/themes/vague.rasi"
+

@@ -32,7 +32,7 @@ hotkey-overlay {
 }
 
 // Main monitor -> Asus VP249
-output "DP-3" {
+output "DP-2" {
     mode "1920x1080@120.000"
     position x=0 y=0
     scale 1
@@ -44,7 +44,7 @@ output "DP-3" {
 output "eDP-1" {
     mode "2880x1920@120.000"
     position x=1920 y=0
-    scale 1.6
+    scale 1.8
 		variable-refresh-rate
 		focus-at-startup
 }
@@ -99,7 +99,12 @@ spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
-spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
+// spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
+spawn-at-startup "swayidle" "-w" \
+  "timeout" "600"  "swaylock -f" \
+  "timeout" "900"  "systemctl suspend" \
+  "before-sleep" "swaylock -f"
+
 
 
 environment {
@@ -164,7 +169,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return  { spawn "wezterm"; }
-	 	Mod+Space   { spawn "fuzzel"; }
+	 	Mod+Space   { spawn "rofi" "-show" "drun"; }
     Mod+Alt+L { spawn "swaylock"; }
 		
 		XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }

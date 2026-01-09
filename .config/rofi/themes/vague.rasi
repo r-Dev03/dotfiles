@@ -1,0 +1,81 @@
+/* GLOBAL DEFAULTS */
+* {
+    font: " Rec Mono Casual 12";
+    background-color: #101317;
+    text-color: #D1CEC9;
+}
+
+/* WINDOW */
+window {
+    background-color: #101317;
+    border: 1px;
+    border-color: #1c1c24;
+    border-radius: 15px;
+    width: 40%;
+    height: 55%;
+    location: center;
+}
+
+/* MAIN LAYOUT */
+mainbox {
+    padding: 20px;
+    spacing: 15px;
+    children: [ "inputbar", "listview" ];
+}
+
+/* SEARCH BAR */
+inputbar {
+    background-color: #101317;
+    border-radius: 10px;
+    padding: 10px 14px;
+    spacing: 10px;
+}
+
+prompt {
+    text-color: #D1CEC9;
+}
+
+entry {
+    background-color: transparent;
+    text-color: #D1CEC9;
+    placeholder: "search…";
+}
+
+/* LIST OF APPS */
+listview {
+    columns: 1;
+    lines: 12;
+    spacing: 6px;
+    fixed-height: 0;
+}
+
+/* ROWS */
+element {
+    background-color: transparent;
+    text-color: #D1CEC9;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+element selected {
+    background-color: #101317;
+    text-color: #878787;
+}
+
+element-icon {
+    size: 28px;
+    border-radius: 6px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+}
+
+/* SCROLLBAR HIDDEN */
+scrollbar {
+    handle-width: 0px;
+    handle-color: transparent;
+    border-color: transparent;
+}
+

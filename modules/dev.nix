@@ -39,12 +39,12 @@
     eza
 		fzf
     fd
+    fastfetch
     gnupg
     gnumake
     ghostty
     kitty
     mycli
-    neofetch
     neovim
     ripgrep
     stow
@@ -56,6 +56,7 @@
     vim
     wezterm
     yq-go
+    yazi
 
     # Language servers & formatters
     nil
