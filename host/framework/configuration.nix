@@ -60,7 +60,13 @@ in {
     pam = {
       services = {
         sddm.enableGnomeKeyring = true;
-        swaylock = {};
+        swaylock = {
+          text = ''
+            auth sufficient pam_unix.so try_first_pass likeauth nullok
+            auth sufficient pam_fprintd.so
+            auth include login
+          '';
+        };
       };
     };
   };
@@ -72,6 +78,7 @@ in {
   services = {
     gvfs.enable = true;
     udisks2.enable = true;
+    fprintd.enable = true;
     displayManager.sddm = {
       enable = false;
       wayland.enable = false;
@@ -82,7 +89,6 @@ in {
       lidSwitchDocked = "ignore";
       lidSwitchExternalPower = "ignore";
     };
-
 
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.

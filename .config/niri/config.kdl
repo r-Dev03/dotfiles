@@ -170,7 +170,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return  { spawn "wezterm"; }
 	 	Mod+Space   { spawn "rofi" "-show" "drun"; }
-    Mod+Alt+L { spawn "swaylock"; }
+    Mod+Alt+L { spawn "swaylock" "-f"; }
 		
 		XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
 		XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
