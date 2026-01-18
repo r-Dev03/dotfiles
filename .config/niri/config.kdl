@@ -40,10 +40,19 @@ output "DP-2" {
 		focus-at-startup
 }
 
+// Work monitor
+output "DP-4" {
+    mode "1920x1080@74.973"
+    position x=0 y=0
+    scale 1
+		variable-refresh-rate
+		focus-at-startup
+}
+
 // Laptop screen -> Framework 13 2.8k display
 output "eDP-1" {
     mode "2880x1920@120.000"
-    position x=1920 y=0
+    position x=0 y=0
     scale 1.8
 		variable-refresh-rate
 		focus-at-startup
