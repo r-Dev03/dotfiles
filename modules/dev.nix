@@ -57,6 +57,7 @@
     wezterm
     yq-go
     yazi
+    python312Packages.black
 
     # Language servers & formatters
     nil
