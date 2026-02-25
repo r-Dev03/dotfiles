@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+
+  services.noctalia-shell = {
+    enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     # Theme
     adwaita-icon-theme

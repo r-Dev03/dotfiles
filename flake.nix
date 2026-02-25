@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
@@ -30,6 +35,7 @@
     nixpkgs,
     nixos-hardware,
     home-manager,
+    noctalia,
     ...
   } @ inputs: let
     forAllSystems = nixpkgs.lib.genAttrs [
@@ -56,11 +62,11 @@
       framework = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         pkgs = legacyPackages."${system}";
-
         modules = [
           ./host/framework/configuration.nix
           ./host/framework/hardware-configuration.nix
           inputs.stylix.nixosModules.stylix
+          noctalia.nixosModules.default
           nixos-hardware.nixosModules.framework-13-7040-amd
 
           # Add Home Manager as a module

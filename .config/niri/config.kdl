@@ -61,16 +61,17 @@ output "eDP-1" {
 
 overview {
     zoom 0.5
-    backdrop-color "#101317"
-    workspace-shadow {
-			off
-    }
+			//  backdrop-color "#101317"
+			//  workspace-shadow {
+			// off
+			//  }
 }
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+	  background-color "transparent"
     gaps 4
     center-focused-column "never"
 
@@ -104,8 +105,9 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 spawn-at-startup "nm-applet"
+spawn-at-startup "systemctl" "--user" "start" "noctalia-shell.service"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
 // spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
@@ -140,9 +142,19 @@ gestures { hot-corners { off; }; }
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+
 window-rule {
-  geometry-corner-radius 8
+  geometry-corner-radius 14
   clip-to-geometry true
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
 }
 
 window-rule {
