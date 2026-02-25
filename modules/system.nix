@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
 
-  services.noctalia-shell = {
-    enable = true;
-  };
+  # services.noctalia-shell = {
+  #   enable = true;
+  # };
 
   environment.systemPackages = with pkgs; [
     # Theme
@@ -20,7 +20,7 @@
     swaylock
     swayimg
     mako
-    jetbrains.idea-ultimate
+    inputs.noctalia.packages.${pkgs.system}.default
 
     # System
     brightnessctl
@@ -28,6 +28,7 @@
     networkmanagerapplet
     udiskie
     wget
+    bluez
 
     # GUI
     discord

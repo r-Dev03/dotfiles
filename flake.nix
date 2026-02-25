@@ -62,6 +62,7 @@
       framework = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         pkgs = legacyPackages."${system}";
+        specialArgs = { inherit inputs; };
         modules = [
           ./host/framework/configuration.nix
           ./host/framework/hardware-configuration.nix
