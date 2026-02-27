@@ -200,11 +200,11 @@ in {
       EDITOR = "nvim";
       VISUAL = "nvim";
       MANPAGER = "nvim +Man!";
-      ROFI_WAYLAND = "1";
-      # NIXOS_OZONE_WL = "1";
-      # GDK_BACKEND = "wayland";
-      # XDG_SESSION_TYPE = "wayland";
-      # MOZ_ENABLE_WAYLAND = 1;
+      XDG_CURRENT_DESKTOP = "niri";
+      QT_QPA_PLATFORM = "wayland";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      QT_QPA_PLATFORMTHEME = "gtk3";
+      QT_QPA_PLATFORMTHEME_QT6 = "gtk3";
     };
   };
 
