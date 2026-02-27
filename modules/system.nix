@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs,inputs, ...}: {
   environment.systemPackages = with pkgs; [
     # Theme
     adwaita-icon-theme
@@ -32,6 +32,23 @@
 
   programs = {
     firefox.enable = true;
+
+    dank-material-shell = {
+      enable = true;
+
+      systemd = {
+        enable = false; # Systemd service for auto-start
+      };
+
+      # Core features
+      enableSystemMonitoring = true; # System monitoring widgets (dgop)
+      # enableVPN = true; # VPN management widget
+      enableDynamicTheming = true; # Wallpaper-based theming (matugen)
+      # enableAudioWavelength = true; # Audio visualizer (cava)
+      # enableCalendarEvents = true; # Calendar integration (khal)
+      enableClipboardPaste = true; # Pasting from the clipboard history (wtype)
+      dgop.package = inputs.dgop.packages.${pkgs.system}.default;
+    };
   };
 
   fonts = {
@@ -49,7 +66,7 @@
       enable = true;
 
       defaultFonts = {
-        sansSerif = ["Recursive Sn Lnr St"]; 
+        sansSerif = ["Recursive Sn Lnr St"];
         monospace = ["Rec Mono Casual"];
       };
     };

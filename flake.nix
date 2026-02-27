@@ -15,6 +15,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    dms = {
+      url = "github:AvengeMedia/DankMaterialShell/stable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
@@ -30,6 +40,8 @@
     nixpkgs,
     nixos-hardware,
     home-manager,
+    dms,
+    dgop,
     ...
   } @ inputs: let
     forAllSystems = nixpkgs.lib.genAttrs [
@@ -56,11 +68,12 @@
       framework = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         pkgs = legacyPackages."${system}";
-
+        specialArgs = {inherit inputs;};
         modules = [
           ./host/framework/configuration.nix
           ./host/framework/hardware-configuration.nix
           inputs.stylix.nixosModules.stylix
+          inputs.dms.nixosModules.dank-material-shell
           nixos-hardware.nixosModules.framework-13-7040-amd
 
           # Add Home Manager as a module

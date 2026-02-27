@@ -105,6 +105,7 @@ layout {
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waybar"
+spawn-at-startup "dms" "run"
 spawn-at-startup "nm-applet"
 spawn-at-startup "blueman-applet"
 spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
