@@ -108,7 +108,7 @@ in {
     };
 
     power-profiles-daemon.enable = true;
-    # upower.enable = false;
+    upower.enable = true;
 
     fwupd.enable = true;
     blueman.enable = true;

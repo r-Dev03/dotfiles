@@ -104,16 +104,16 @@ layout {
 // See the binds section below for more spawn examples.
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "waybar"
 spawn-at-startup "dms" "run"
-spawn-at-startup "nm-applet"
-spawn-at-startup "blueman-applet"
-spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
+// spawn-at-startup "waybar"
+// spawn-at-startup "nm-applet"
+// spawn-at-startup "blueman-applet"
+// spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
 // spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
 spawn-at-startup "swayidle" "-w" \
-  "timeout" "600"  "swaylock -f" \
+  "timeout" "600"  "dms ipc call lockscreen lock" \
   "timeout" "900"  "systemctl suspend" \
-  "before-sleep" "swaylock -f"
+  "before-sleep" "dms ipc call lockscreen lock"
 
 
 
@@ -179,17 +179,16 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return  { spawn "wezterm"; }
-	 	Mod+Space   { spawn "rofi" "-show" "drun"; }
-    Mod+Alt+L { spawn "swaylock" "-f"; }
-		
-		XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-		XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-		XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-		XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-		XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "10%+"; }
-		XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-"; }
-
-
+		// Mod+Alt+L { spawn "dms ipc call lockscreen lock"; }
+	// 	Mod+Space   { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+	Mod+Space { spawn "dms" "ipc" "spotlight" "toggle"; }
+	Mod+Alt+L { spawn "dms" "ipc" "lock" "lock"; }
+	XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "increment" "5"; }
+	XF86AudioLowerVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "decrement" "5"; }
+	XF86AudioMute         allow-when-locked=true { spawn "dms" "ipc" "audio" "mute"; }
+	XF86AudioMicMute      allow-when-locked=true { spawn "dms" "ipc" "audio" "micmute"; }
+	XF86MonBrightnessUp   allow-when-locked=true { spawn "dms" "ipc" "brightness" "increment" "5" "backlight:amdgpu_bl1"; }
+	XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "brightness" "decrement" "5" "backlight:amdgpu_bl1"; }
 
     Mod+O repeat=false { toggle-overview; }
 
