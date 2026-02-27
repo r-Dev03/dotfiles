@@ -113,10 +113,9 @@ spawn-at-startup "blueman-applet"
 spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
 // spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
 spawn-at-startup "swayidle" "-w" \
-  "timeout" "600"  "swaylock -f" \
+  "timeout" "600"  "noctalia-shell ipc call lockScreen lock" \
   "timeout" "900"  "systemctl suspend" \
-  "before-sleep" "swaylock -f"
-
+  "before-sleep" "noctalia-shell ipc call lockScreen lock"
 
 
 environment {
@@ -191,7 +190,8 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return  { spawn "wezterm"; }
-    Mod+Alt+L { spawn "swaylock" "-f"; }
+		Mod+Alt+L   { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+		Mod+Shift+S { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
 		
     Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+S { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }

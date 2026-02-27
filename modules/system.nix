@@ -17,7 +17,6 @@
     rofi
     swaybg
     swayidle
-    swaylock
     swayimg
     mako
     inputs.noctalia.packages.${pkgs.system}.default
