@@ -177,12 +177,12 @@ window-rule {
 
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
-    Mod+Return  { spawn "wezterm"; }
-		// Mod+Alt+L { spawn "dms ipc call lockscreen lock"; }
-	// 	Mod+Space   { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+  Mod+Shift+Slash { show-hotkey-overlay; }
+  Mod+Return  { spawn "wezterm"; }
 	Mod+Space { spawn "dms" "ipc" "spotlight" "toggle"; }
 	Mod+Alt+L { spawn "dms" "ipc" "lock" "lock"; }
+	Mod+V     { spawn "dms" "ipc" "clipboard" "toggle"; }
+	Mod+N     { spawn "dms" "ipc" "notepad" "toggle"; }
 	XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "increment" "5"; }
 	XF86AudioLowerVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "decrement" "5"; }
 	XF86AudioMute         allow-when-locked=true { spawn "dms" "ipc" "audio" "mute"; }
@@ -368,7 +368,7 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
+    // Mod+V       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
