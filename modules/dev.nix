@@ -49,6 +49,7 @@
     ripgrep
     stow
     tmux
+    typst
     tree
     tealdeer
     uv
@@ -67,6 +68,8 @@
     stylua
 
     jdt-language-server
+
+    tinymist
 
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript
