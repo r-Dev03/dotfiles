@@ -183,6 +183,7 @@ binds {
 	Mod+Alt+L { spawn "dms" "ipc" "lock" "lock"; }
 	Mod+V     { spawn "dms" "ipc" "clipboard" "toggle"; }
 	Mod+N     { spawn "dms" "ipc" "notepad" "toggle"; }
+	Mod+P     { spawn "dms" "ipc" "powermenu" "toggle"; }
 	XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "increment" "5"; }
 	XF86AudioLowerVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "decrement" "5"; }
 	XF86AudioMute         allow-when-locked=true { spawn "dms" "ipc" "audio" "mute"; }

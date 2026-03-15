@@ -55,6 +55,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       rec-mono
+      google-fonts
       font-awesome
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
