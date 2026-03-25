@@ -105,15 +105,6 @@ layout {
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "dms" "run"
-// spawn-at-startup "waybar"
-// spawn-at-startup "nm-applet"
-// spawn-at-startup "blueman-applet"
-// spawn-at-startup "zsh" "-c" "swaybg -i ~/Pictures/tree.jpg"
-// spawn-at-startup "swayidle" "-w" "timeout" "600" "swaylock -f" "timeout" "900" "niri msg action power-off-monitors" "resume" "niri msg action power-on-monitors" "before-sleep" "swaylock -f"
-spawn-at-startup "swayidle" "-w" \
-  "timeout" "600"  "dms ipc call lockscreen lock" \
-  "timeout" "900"  "systemctl suspend" \
-  "before-sleep" "dms ipc call lockscreen lock"
 
 
 

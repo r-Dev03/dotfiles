@@ -109,6 +109,26 @@
         "type": "github"
       }
     },
+    "dsearch": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774118214,
+        "narHash": "sha256-Y7frUOBhSJtalBo/kDESkTTvsQe1FJov5EUzKF+sfjM=",
+        "owner": "AvengeMedia",
+        "repo": "danksearch",
+        "rev": "1342ceae4c0a18b45cce7a00dd26fe924a42d66a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AvengeMedia",
+        "repo": "danksearch",
+        "type": "github"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -460,6 +480,7 @@
       "inputs": {
         "dgop": "dgop",
         "dms": "dms",
+        "dsearch": "dsearch",
         "home-manager": "home-manager",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixos-hardware": "nixos-hardware",

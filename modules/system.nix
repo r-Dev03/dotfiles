@@ -6,21 +6,10 @@
     # Niri / Desktop utilities
     niri
     xwayland-satellite
-    libnotify
-    waybar
-    fuzzel
-    rofi
-    swaybg
-    swayidle
-    swaylock
-    swayimg
-    mako
-    jetbrains.idea-ultimate
+    inputs.dsearch.packages.${pkgs.system}.default
 
     # System
-    brightnessctl
     pavucontrol
-    networkmanagerapplet
     udiskie
     wget
 
