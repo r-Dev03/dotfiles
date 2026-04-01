@@ -57,11 +57,11 @@ in {
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-    pam = {
-      services = {
-        sddm.enableGnomeKeyring = true;
-      };
-    };
+    # pam = {
+    #   services = {
+    #     greetd.enableGnomeKeyring = true;
+    #   };
+    # };
   };
 
   powerManagement = {
@@ -71,11 +71,24 @@ in {
   services = {
     gvfs.enable = true;
     udisks2.enable = true;
-    fprintd.enable = true;
-    displayManager.sddm = {
-      enable = false;
-      wayland.enable = false;
+    fprintd.enable = false;
+    displayManager = {
+      dms-greeter = {
+        enable = true;
+        compositor.name = "niri";
+        configHome = "/home/ron";
+      };
     };
+
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session --remember --asterisks";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
 
     logind = {
       lidSwitch = "ignore";
@@ -96,9 +109,9 @@ in {
       };
     };
 
-    getty = {
-      autologinUser = "ron";
-    };
+    # getty = {
+    #   autologinUser = "ron";
+    # };
 
     power-profiles-daemon.enable = true;
     upower.enable = true;
@@ -143,7 +156,6 @@ in {
           "/dev/input/by-id/usb-RDR_IQUNIX_MG65_Mechanical_Keyboard-event-kbd"
 
           "/dev/input/by-id/usb-BY_Tech_NuPhy_Halo96-event-kbd"
-
         ];
 
         extraDefCfg = "process-unmapped-keys yes";
