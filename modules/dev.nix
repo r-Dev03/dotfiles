@@ -42,8 +42,6 @@
     fastfetch
     gnupg
     gnumake
-    ghostty
-    kitty
     mycli
     neovim
     ripgrep
@@ -58,18 +56,25 @@
     wezterm
     yq-go
     yazi
-    python312Packages.black
 
     # Language servers & formatters
+    # Nix 
     nil
     alejandra
 
+    # Lua
     lua-language-server
     stylua
 
+    # Java
     jdt-language-server
 
+    # Typst
     tinymist
+
+    # Python
+    basedpyright
+    python312Packages.black
 
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript

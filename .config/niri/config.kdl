@@ -175,6 +175,7 @@ binds {
 	Mod+V     { spawn "dms" "ipc" "clipboard" "toggle"; }
 	Mod+N     { spawn "dms" "ipc" "notifications" "toggle"; }
 	Mod+P     { spawn "dms" "ipc" "powermenu" "toggle"; }
+	Mod+C     { spawn "dms" "ipc" "control-center" "toggle"; }
 	XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "increment" "5"; }
 	XF86AudioLowerVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "decrement" "5"; }
 	XF86AudioMute         allow-when-locked=true { spawn "dms" "ipc" "audio" "mute"; }
@@ -339,7 +340,7 @@ binds {
     // Makes the column "fill the rest of the space".
     Mod+Ctrl+F { expand-column-to-available-width; }
 
-    Mod+C { center-column; }
+    // Mod+C { center-column; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
