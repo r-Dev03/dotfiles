@@ -48,6 +48,7 @@
     stow
     tmux
     typst
+    tree-sitter
     tree
     tealdeer
     uv
