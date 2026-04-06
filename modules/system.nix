@@ -13,6 +13,7 @@
 
     # System
     pavucontrol
+    powertop
     udiskie
     wget
 

@@ -66,6 +66,7 @@ in {
 
   powerManagement = {
     enable = true;
+    powertop.enable = true;
   };
 
   services = {
@@ -197,6 +198,7 @@ in {
   virtualisation = {
     docker = {
       enable = true;
+      enableOnBoot = false;
     };
   };
 
