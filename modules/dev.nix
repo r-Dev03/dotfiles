@@ -37,7 +37,7 @@
     bat
     coreutils-full
     eza
-		fzf
+    fzf
     fd
     fastfetch
     gnupg
@@ -59,7 +59,7 @@
     yazi
 
     # Language servers & formatters
-    # Nix 
+    # Nix
     nil
     alejandra
 
@@ -77,11 +77,17 @@
     basedpyright
     python312Packages.black
 
-    nodePackages.vscode-langservers-extracted
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.prettier
-    nodePackages.eslint
+    # nodePackages.vscode-langservers-extracted
+    # nodePackages.typescript
+    # nodePackages.typescript-language-server
+    # nodePackages.prettier
+    # nodePackages.eslint
+
+    vscode-langservers-extracted
+    typescript
+    typescript-language-server
+    prettier
+    eslint
 
     # Build tools
     cmake

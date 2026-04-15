@@ -10,6 +10,7 @@ input {
         dwt
 				drag true
 				scroll-method "two-finger"
+				accel-speed 0.3
     }
 
     mouse {
@@ -18,7 +19,7 @@ input {
 
 
     // warp-mouse-to-focus
-	 focus-follows-mouse max-scroll-amount="95%"
+	 // focus-follows-mouse max-scroll-amount="95%"
 }
 
 cursor {
@@ -59,12 +60,24 @@ output "eDP-1" {
 }
 
 
+
+
 overview {
-    zoom 0.5
-    backdrop-color "#101317"
-    workspace-shadow {
-			off
-    }
+	zoom 0.5
+	// backdrop-color "#101317"
+	workspace-shadow {
+		off
+	}
+}
+
+layer-rule {
+    match namespace="^quickshell$"
+    place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="dms:blurwallpaper"
+    place-within-backdrop true
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -72,18 +85,22 @@ overview {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     gaps 4
+		background-color "transparent"
     center-focused-column "never"
 
     preset-column-widths {
-        proportion 0.33333
+        proportion 0.25
         proportion 0.5
-        proportion 0.66667
+        proportion 0.75
+				proportion 1.0
     }
 
     // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
     preset-window-heights { 
-			proportion 0.5
-			proportion 1.0
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+				proportion 1.0
 	}
 
     default-column-width { proportion 0.5; }
@@ -107,13 +124,15 @@ layout {
 
 
 environment {
-    XDG_CURRENT_DESKTOP "niri"
-    DISPLAY ":0"
+		XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     MOZ_ENABLE_WAYLAND "1"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-}
+		QT_QPA_PLATFORM "wayland"
+		QT_QPA_PLATFORMTHEME "gtk3"
+		QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+	}
 
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -128,7 +147,7 @@ gestures { hot-corners { off; }; }
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/pictures/screenshots/screenshot from %Y-%m-%d %H-%M-%S.png"
 
 window-rule {
   geometry-corner-radius 8
@@ -141,13 +160,18 @@ window-rule {
 }
 
 
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
+// window-rule {
+//     match app-id=r#"^org\.wezfurlong\.wezterm$"#
+//     default-column-width {}
+// }
 
 window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="org.quickshell" title="System Monitor"
     open-floating true
 }
 
@@ -172,7 +196,8 @@ binds {
 	Mod+Alt+L { spawn "dms" "ipc" "lock" "lock"; }
 	Mod+V     { spawn "dms" "ipc" "clipboard" "toggle"; }
 	Mod+N     { spawn "dms" "ipc" "notifications" "toggle"; }
-	Mod+P     { spawn "dms" "ipc" "powermenu" "toggle"; }
+	Mod+P     { spawn "dms" "ipc" "processlist" "toggle"; }
+	Mod+M     { spawn "dms" "ipc" "powermenu" "toggle"; }
 	Mod+C     { spawn "dms" "ipc" "control-center" "toggle"; }
 	XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "increment" "5"; }
 	XF86AudioLowerVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "decrement" "5"; }

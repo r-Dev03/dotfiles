@@ -25,6 +25,9 @@ in {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    kernelParams = [
+      "pcie_aspm=off"
+    ];
   };
 
   networking = {
@@ -35,7 +38,7 @@ in {
 
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true;
+    powerOnBoot = false;
   };
 
   # Configure network proxy if necessary
@@ -91,11 +94,11 @@ in {
     #   };
     # };
 
-    logind = {
-      lidSwitch = "ignore";
-      lidSwitchDocked = "ignore";
-      lidSwitchExternalPower = "ignore";
-    };
+    # logind = {
+    #   lidSwitch = "ignore";
+    #   lidSwitchDocked = "ignore";
+    #   lidSwitchExternalPower = "ignore";
+    # };
 
     # Enable the X11 windowing system.
     # You can disable this if you're only using the Wayland session.
@@ -121,19 +124,16 @@ in {
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
 
-    # Enable CUPS to print documents.
     printing = {
       enable = true;
-      browsed = {
-        enable = true;
-      };
-      drivers = [
-        pkgs.cups-filters # IPP Everywhere + generic drivers
-        pkgs.cups-bjnp # Canon BJNP network support
-        pkgs.hplip # HP printers (massive coverage)
-        pkgs.epson-escpr # Epson ESC/P-R (lots of EcoTank/WorkForce models)
-        pkgs.brlaser # Brother open-source laser drivers
-      ];
+      browsed.enable = true;
+      drivers = [pkgs.cups-filters];
+    };
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
     };
 
     # Enable sound with pipewire.
@@ -207,9 +207,17 @@ in {
       EDITOR = "nvim";
       VISUAL = "nvim";
       MANPAGER = "nvim +Man!";
-      XDG_CURRENT_DESKTOP = "niri";
-      QT_QPA_PLATFORM = "wayland";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    };
+
+    sessionVariables = {
+      XDG_DESKTOP_DIR = "$HOME/documents";
+      XDG_DOWNLOAD_DIR = "$HOME/downloads";
+      XDG_TEMPLATES_DIR = "$HOME/documents/templates";
+      XDG_PUBLICSHARE_DIR = "$HOME/documents/share";
+      XDG_DOCUMENTS_DIR = "$HOME/documents";
+      XDG_MUSIC_DIR = "$HOME/music";
+      XDG_PICTURES_DIR = "$HOME/pictures";
+      XDG_VIDEOS_DIR = "$HOME/videos";
     };
   };
 
