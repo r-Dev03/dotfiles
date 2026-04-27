@@ -1,0 +1,53 @@
+# ~/.config/btop/themes/vague.theme
+
+theme[main_bg]="#101317"
+theme[main_fg]="#D1CEC9"
+theme[title]="#99A3C2"
+theme[hi_fg]="#b0b8d0"
+theme[selected_bg]="#454756"
+theme[selected_fg]="#D1CEC9"
+theme[inactive_fg]="#c8c8d8"
+theme[graph_text]="#b0b8d0"
+theme[meter_bg]="#252530"
+theme[proc_misc]="#c3c3d5"
+theme[proc_color]="#D1CEC9"
+
+# CPU — keyword blue
+theme[cpu_start]="#505164"
+theme[cpu_mid]="#5a5e80"
+theme[cpu_end]="#9aa0c8"
+
+# Memory — type teal
+theme[mem_start]="#252530"
+theme[mem_mid]="#4a6a6e"
+theme[mem_end]="#9bb4bc"
+
+# Net — operator blue-grey
+theme[net_start]="#252530"
+theme[net_mid]="#4a5a6a"
+theme[net_end]="#90a0b5"
+
+# Procs — func purple
+theme[proc_start]="#252530"
+theme[proc_mid]="#5a4a6a"
+theme[proc_end]="#ad8dbd"
+
+# Temp
+theme[temp_start]="#B4C7A7"
+theme[temp_mid]="#C3AD8B"
+theme[temp_end]="#b48484"
+
+# Disk
+theme[div_line]="#252530"
+theme[free_start]="#252530"
+theme[free_mid]="#4a6a6e"
+theme[free_end]="#9bb4bc"
+theme[cached_start]="#252530"
+theme[cached_mid]="#4a5a6a"
+theme[cached_end]="#90a0b5"
+theme[available_start]="#252530"
+theme[available_mid]="#4a6a6e"
+theme[available_end]="#B4C7A7"
+theme[used_start]="#252530"
+theme[used_mid]="#6a4a6a"
+theme[used_end]="#ad8dbd"
