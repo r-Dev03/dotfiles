@@ -60,11 +60,6 @@ in {
   security = {
     rtkit.enable = true;
     polkit.enable = true;
-    # pam = {
-    #   services = {
-    #     greetd.enableGnomeKeyring = true;
-    #   };
-    # };
   };
 
   powerManagement = {
@@ -73,6 +68,7 @@ in {
   };
 
   services = {
+    devmon.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
     fprintd.enable = false;

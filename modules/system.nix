@@ -14,7 +14,6 @@
     # System
     pavucontrol
     powertop
-    udiskie
     wget
 
     # GUI
