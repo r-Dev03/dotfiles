@@ -103,10 +103,6 @@ in {
       };
     };
 
-    # getty = {
-    #   autologinUser = "ron";
-    # };
-
     power-profiles-daemon.enable = true;
     upower.enable = true;
 
