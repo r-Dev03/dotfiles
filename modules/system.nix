@@ -14,6 +14,7 @@
     # System
     pavucontrol
     powertop
+    bottles
     wget
 
     # GUI
@@ -25,6 +26,7 @@
   programs = {
     niri.enable = true;
     firefox.enable = true;
+    # fuse.userAllowOther = true;
     dms-shell = {
       enable = true;
       quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
