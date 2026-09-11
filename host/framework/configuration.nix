@@ -143,6 +143,8 @@ in {
           "/dev/input/by-id/usb-RDR_IQUNIX_MG65_Mechanical_Keyboard-event-kbd"
 
           "/dev/input/by-id/usb-BY_Tech_NuPhy_Halo96-event-kbd"
+
+          "/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-kbd"
         ];
 
         extraDefCfg = "process-unmapped-keys yes";
