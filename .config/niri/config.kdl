@@ -34,7 +34,7 @@ hotkey-overlay {
 
 // Main monitor -> AOC 
 output "DP-3" {
-    mode "2560x1440@59.951"
+    mode "2560x1440@143.999"
     position x=0 y=0
     scale 1.3
 		focus-at-startup
@@ -115,6 +115,7 @@ layout {
 }
 
 // Add lines like this to spawn processes at startup.
+spawn-at-startup "noctalia"
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
@@ -191,19 +192,37 @@ window-rule {
 binds {
   Mod+Shift+Slash { show-hotkey-overlay; }
   Mod+Return  { spawn "wezterm"; }
-	Mod+Space { spawn "dms" "ipc" "spotlight" "toggle"; }
-	Mod+Alt+L { spawn "dms" "ipc" "lock" "lock"; }
-	Mod+V     { spawn "dms" "ipc" "clipboard" "toggle"; }
-	Mod+N     { spawn "dms" "ipc" "notepad" "toggle"; }
-	Mod+P     { spawn "dms" "ipc" "powermenu" "toggle"; }
-	Mod+C     { spawn "dms" "ipc" "control-center" "toggle"; }
-	XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "increment" "5"; }
-	XF86AudioLowerVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "decrement" "5"; }
-	XF86AudioMute         allow-when-locked=true { spawn "dms" "ipc" "audio" "mute"; }
-	XF86AudioMicMute      allow-when-locked=true { spawn "dms" "ipc" "audio" "micmute"; }
-	XF86MonBrightnessUp   allow-when-locked=true { spawn "dms" "ipc" "brightness" "increment" "5" "backlight:amdgpu_bl1"; }
-	XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "brightness" "decrement" "5" "backlight:amdgpu_bl1"; }
-
+	    // Noctalia
+			Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+			Mod+Alt+L { spawn "noctalia" "msg" "session" "lock"; }
+			Mod+V     { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+			// Mod+N  — DMS notepad: no official Noctalia notes plugin yet
+			Mod+P     { spawn "noctalia" "msg" "panel-toggle" "session"; }
+			Mod+C     { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+			Mod+S     { spawn "noctalia" "msg" "settings-toggle"; }
+			Alt+Tab   { spawn "noctalia" "msg" "window-switcher" "hold"; }
+			XF86AudioRaiseVolume  allow-when-locked=true { spawn "noctalia" "msg" "volume-up" "5"; }
+			XF86AudioLowerVolume  allow-when-locked=true { spawn "noctalia" "msg" "volume-down" "5"; }
+			XF86AudioMute         allow-when-locked=true { spawn "noctalia" "msg" "volume-mute"; }
+			XF86AudioMicMute      allow-when-locked=true { spawn "noctalia" "msg" "mic-mute"; }
+			XF86MonBrightnessUp   allow-when-locked=true { spawn "noctalia" "msg" "brightness-up" "eDP-1" "5"; }
+			XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down" "eDP-1" "5"; }
+			XF86AudioPlay         allow-when-locked=true { spawn "noctalia" "msg" "media" "toggle"; }
+			XF86AudioNext         allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
+			XF86AudioPrev         allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
+	// Mod+Space { spawn "dms" "ipc" "spotlight" "toggle"; }
+	// Mod+Alt+L { spawn "dms" "ipc" "lock" "lock"; }
+	// Mod+V     { spawn "dms" "ipc" "clipboard" "toggle"; }
+	// Mod+N     { spawn "dms" "ipc" "notepad" "toggle"; }
+	// Mod+P     { spawn "dms" "ipc" "powermenu" "toggle"; }
+	// Mod+C     { spawn "dms" "ipc" "control-center" "toggle"; }
+	// XF86AudioRaiseVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "increment" "5"; }
+	// XF86AudioLowerVolume  allow-when-locked=true { spawn "dms" "ipc" "audio" "decrement" "5"; }
+	// XF86AudioMute         allow-when-locked=true { spawn "dms" "ipc" "audio" "mute"; }
+	// XF86AudioMicMute      allow-when-locked=true { spawn "dms" "ipc" "audio" "micmute"; }
+	// XF86MonBrightnessUp   allow-when-locked=true { spawn "dms" "ipc" "brightness" "increment" "5" "backlight:amdgpu_bl1"; }
+	// XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "brightness" "decrement" "5" "backlight:amdgpu_bl1"; }
+	//
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q { close-window; }

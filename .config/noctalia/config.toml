@@ -1,0 +1,10 @@
+[keybinds]
+up    = ["up", "ctrl+k"]
+down  = ["down", "ctrl+j"]
+left  = ["left", "ctrl+h"]
+right = ["right", "ctrl+l"]
+
+[shell]
+launcher.compact = true
+launcher.show_app_origin_indicator = false
+launcher_placement = "centered"
