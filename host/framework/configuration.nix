@@ -71,7 +71,7 @@ in {
     devmon.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
-    fprintd.enable = false;
+    fprintd.enable = true;
     displayManager = {
       noctalia-greeter = {
         enable = true;

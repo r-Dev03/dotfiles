@@ -8,3 +8,13 @@ right = ["right", "ctrl+l"]
 launcher.compact = true
 launcher.show_app_origin_indicator = false
 launcher_placement = "centered"
+
+[lockscreen]
+blurred_desktop     = false   # true = blurred snapshot of your desktop instead of the wallpaper
+blur_intensity      = 0.5     # 0.0–1.0
+tint_intensity      = 0.3     # 0.0–1.0, tints the background with your surface color
+wallpaper           = ""      # path to a lock-screen-only image; empty = desktop wallpaper
+transition          = ["fade"]  # any of: fade, wipe, disc, stripes, zoom, honeycomb
+transition_duration = 1500    # ms
+monitors            = []      # e.g. ["eDP-1"]; others stay black. Empty = all
+fingerprint         = true    # fingerprint unlock (you already have fprintd set up)
