@@ -6,6 +6,8 @@
 \.editorconfig
 \.stylua\.toml
 flake\.(nix|lock)
+README\.md
+docs
 host
 pkgs
 modules
