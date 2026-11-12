@@ -15,10 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # quickshell = {
+    #   url = "git+https://git.outfoxxed.me/quickshell/quickshell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";

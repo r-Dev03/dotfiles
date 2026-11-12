@@ -9,12 +9,13 @@
 
     # Niri / Desktop utilities
     xwayland-satellite
+    noctalia
     dsearch
 
     # System
     pavucontrol
     powertop
-    bottles
+    # bottles
     wget
 
     # GUI
@@ -27,16 +28,6 @@
     niri.enable = true;
     firefox.enable = true;
     # fuse.userAllowOther = true;
-    dms-shell = {
-      enable = true;
-      quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
-      systemd.enable = true;
-      enableSystemMonitoring = true;
-      enableDynamicTheming = false;
-      enableAudioWavelength = false;
-      enableCalendarEvents = false;
-      enableClipboardPaste = true;
-    };
   };
 
   fonts = {

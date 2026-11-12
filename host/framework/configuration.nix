@@ -71,12 +71,10 @@ in {
     devmon.enable = true;
     gvfs.enable = true;
     udisks2.enable = true;
-    fprintd.enable = false;
+    fprintd.enable = true;
     displayManager = {
-      dms-greeter = {
+      noctalia-greeter = {
         enable = true;
-        compositor.name = "niri";
-        configHome = "/home/ron";
       };
     };
 
