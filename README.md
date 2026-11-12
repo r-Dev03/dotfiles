@@ -1,6 +1,6 @@
 # dotfiles
 
-My NixOS configuration for a Framework 13 AMD laptop. The system is defined in a flake, and app configs are symlinked into place with GNU Stow, so a fresh install can be rebuilt from this repo.
+NixOS config for framework 13. System is defined through a flake and program configs are managed with GNU Stow.
 
 ![Desktop](docs/desktop.png)
 
@@ -56,6 +56,6 @@ cd ~/dotfiles
 # Rebuild the system
 sudo nixos-rebuild switch --flake .#framework
 
-# Symlink app configs into ~
-stow .
+# Link app configs into ~/.config
+stow -d ~/dotfiles -t ~ .
 ```
